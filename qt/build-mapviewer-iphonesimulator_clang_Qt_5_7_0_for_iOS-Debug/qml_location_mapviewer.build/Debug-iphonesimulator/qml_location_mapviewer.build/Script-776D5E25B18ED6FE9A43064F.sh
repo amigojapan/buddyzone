@@ -1,0 +1,2 @@
+#!/bin/sh
+cp /Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qt.conf $CODESIGNING_FOLDER_PATH/qt.conf;  test -d $CODESIGNING_FOLDER_PATH/qt_qml && rm -r $CODESIGNING_FOLDER_PATH/qt_qml;  mkdir -p $CODESIGNING_FOLDER_PATH/qt_qml &&  for p in /Users/usmarpadow/Qt/5.7/ios/qml; do rsync -r --exclude='*.a' --exclude='*.prl' --exclude='*.qmltypes'  $p/ $CODESIGNING_FOLDER_PATH/qt_qml; done

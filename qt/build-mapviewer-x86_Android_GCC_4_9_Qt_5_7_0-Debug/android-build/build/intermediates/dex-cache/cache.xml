@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/libs/QtAndroidBearer-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="27e88e1a423760d9493bfe53299d02243f6bbe6c">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/build/intermediates/pre-dexed/debug/QtAndroidBearer-bundled-e452d820a23e5ea441b0762040b381dbee21498d.jar" />
+    </item>
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/libs/QtPositioning-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6dea5b5ba25b7f3ebba3c4537fa42887ba393470">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/build/intermediates/pre-dexed/debug/QtPositioning-bundled-c15eb675774323b1254c1920a9b74d83175c958e.jar" />
+    </item>
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/libs/QtAndroid-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="157857fd0985431dc1d68e4ee4caab40e90b9d06">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-x86_Android_GCC_4_9_Qt_5_7_0-Debug/android-build/build/intermediates/pre-dexed/debug/QtAndroid-bundled-83624ce7fd6379a0e0fa1e3bbabe5336addd70bb.jar" />
+    </item>
+
+</items>

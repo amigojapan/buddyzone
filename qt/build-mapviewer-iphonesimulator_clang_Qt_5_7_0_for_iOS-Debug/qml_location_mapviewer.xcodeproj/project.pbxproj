@@ -1,0 +1,1681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+		5E618435888B9D49F8540165 = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			isa = PBXShellScriptBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Qt Qmake";
+			shellPath = "/bin/sh";
+			shellScript = "make -C /Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/ -f qml_location_mapviewer.xcodeproj/qt_makeqmake.mak";
+			showEnvVarsInLog = "0";
+		};
+		A8D2E1F3B784D75DAEB31947 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/mapviewer/main.cpp";
+			name = "main.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		0F5637B498B999AD899B939C = {
+			fileRef = "A8D2E1F3B784D75DAEB31947";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		86C85B798BBACB28B73BF83F = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qml_location_mapviewer_qml_plugin_import.cpp";
+			name = "qml_location_mapviewer_qml_plugin_import.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		28B42BFC4D6C02906A7E59FF = {
+			fileRef = "86C85B798BBACB28B73BF83F";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		F5CB573F115923CD047C3284 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qml_location_mapviewer_plugin_import.cpp";
+			name = "qml_location_mapviewer_plugin_import.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		8D0B0DD7A2DB6E9752AB3730 = {
+			fileRef = "F5CB573F115923CD047C3284";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		884B2D09399F68635755B48B = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qrc_mapviewer.cpp";
+			name = "qrc_mapviewer.cpp";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		839A4D04B7B59F8A167B1B61 = {
+			fileRef = "884B2D09399F68635755B48B";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		35BF9443B754A92654F6D51A = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/mapviewer.pro";
+			name = "mapviewer.pro";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		19F58665A67D184135DC530F = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/.qmake.stash";
+			name = ".qmake.stash";
+			sourceTree = "<absolute>";
+		};
+		C9F1D92D10AF8F2F0B6DAF7D = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/mapviewer/mapviewer.pro";
+			name = "mapviewer.pro";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		0B137C98604B0E881AB6DCE8 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/mapviewer/mapviewer.qrc";
+			name = "mapviewer.qrc";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		0B137C98604B0E881AB6DCE8 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/mapviewer/mapviewer.qrc";
+			name = "mapviewer.qrc";
+			sourceTree = "<absolute>";
+			lastKnownFileType = "text";
+		};
+		D68AA2B31AFDAF45DCC72FCB = {
+			fileRef = "0B137C98604B0E881AB6DCE8";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		25B08E2869634E9BCBA333A2 = {
+			isa = PBXGroup;
+			children = (
+				"86C85B798BBACB28B73BF83F",
+				"F5CB573F115923CD047C3284",
+				"884B2D09399F68635755B48B");
+			name = "Generated Sources";
+			sourceTree = "<group>";
+		};
+		87DF60DE337FB58864343E39 = {
+			isa = PBXGroup;
+			children = (
+				"0B137C98604B0E881AB6DCE8");
+			name = "Resources";
+			sourceTree = "<group>";
+		};
+		2EB56BE3C2D93CDAB0C52E67 = {
+			isa = PBXGroup;
+			children = (
+				"A8D2E1F3B784D75DAEB31947");
+			name = "Sources";
+			sourceTree = "<group>";
+		};
+		74B182DB50CB5611B5C1C297 = {
+			isa = PBXGroup;
+			children = (
+				"35BF9443B754A92654F6D51A",
+				"19F58665A67D184135DC530F",
+				"C9F1D92D10AF8F2F0B6DAF7D",
+				"0B137C98604B0E881AB6DCE8");
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EF0942E79C014DCEC8976BC = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			isa = PBXShellScriptBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Qt Preprocessors";
+			shellPath = "/bin/sh";
+			shellScript = "make -C /Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/ -f qml_location_mapviewer.xcodeproj/qt_preprocess.mak";
+			showEnvVarsInLog = "0";
+		};
+		F7E50F631C51CD5B5DC0BC43 = {
+			buildActionMask = 2147483647;
+			files = (
+				"0F5637B498B999AD899B939C",
+				"28B42BFC4D6C02906A7E59FF",
+				"8D0B0DD7A2DB6E9752AB3730",
+				"839A4D04B7B59F8A167B1B61");
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Compile Sources";
+		};
+		4060DE0EF4406C98363578A6 = {
+			isa = PBXFileReference;
+			name = "qios";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/platforms/libqios$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		2DDC384032EF9E87BC88CC81 = {
+			fileRef = "4060DE0EF4406C98363578A6";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		FCC237CA5AD60B9BA4447615 = {
+			isa = PBXFileReference;
+			name = "Foundation.framework";
+			path = "/System/Library/Frameworks/Foundation.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		F26454630C80841CBDCFE1CA = {
+			fileRef = "FCC237CA5AD60B9BA4447615";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7EC00404ACD5AB0E97726B0E = {
+			isa = PBXFileReference;
+			name = "QuartzCore.framework";
+			path = "/System/Library/Frameworks/QuartzCore.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		B460F624007324313696BE86 = {
+			fileRef = "7EC00404ACD5AB0E97726B0E";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3C44131FDCFEF4396B9EA2BA = {
+			isa = PBXFileReference;
+			name = "AudioToolbox.framework";
+			path = "/System/Library/Frameworks/AudioToolbox.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		4EB68D0C8182BCE33529C421 = {
+			fileRef = "3C44131FDCFEF4396B9EA2BA";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		4D765E1B1EA6C757220C63E7 = {
+			isa = PBXFileReference;
+			name = "CoreFoundation.framework";
+			path = "/System/Library/Frameworks/CoreFoundation.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		F8B465CE34D8DF87AAE95913 = {
+			fileRef = "4D765E1B1EA6C757220C63E7";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7D7B02101166B76FD2D4F8B4 = {
+			isa = PBXFileReference;
+			name = "CoreText.framework";
+			path = "/System/Library/Frameworks/CoreText.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		2B02D9DC58A01E45248DDBCE = {
+			fileRef = "7D7B02101166B76FD2D4F8B4";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		6AE3EC31EE5BB1FCEE84137C = {
+			isa = PBXFileReference;
+			name = "CoreGraphics.framework";
+			path = "/System/Library/Frameworks/CoreGraphics.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		0CE02722F00CAD43741297B5 = {
+			fileRef = "6AE3EC31EE5BB1FCEE84137C";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		205259EEEE2BADA5E64741E3 = {
+			isa = PBXFileReference;
+			name = "Security.framework";
+			path = "/System/Library/Frameworks/Security.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		15364689D2AB5A30E87A689F = {
+			fileRef = "205259EEEE2BADA5E64741E3";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		FF5BDAB0076F3391B219EA52 = {
+			isa = PBXFileReference;
+			name = "SystemConfiguration.framework";
+			path = "/System/Library/Frameworks/SystemConfiguration.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		D4639595C3BCF2A39D88DF6E = {
+			fileRef = "FF5BDAB0076F3391B219EA52";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		13FE39D940E152DD700FACA9 = {
+			isa = PBXFileReference;
+			name = "qtquick2plugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick.2/libqtquick2plugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		038063D5E3009D229EB9FB43 = {
+			fileRef = "13FE39D940E152DD700FACA9";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E23444A1BD791F93908855F4 = {
+			isa = PBXFileReference;
+			name = "qtquickcontrolsplugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls/libqtquickcontrolsplugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		BDFBC85F560DB22CA836E40B = {
+			fileRef = "E23444A1BD791F93908855F4";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		CDA67568D7EE9CF8E577967E = {
+			isa = PBXFileReference;
+			name = "declarative_location";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtLocation/libdeclarative_location$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		E539494E1C2641823BCE250C = {
+			fileRef = "CDA67568D7EE9CF8E577967E";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		26552859DF7F14AD4C5CE4E9 = {
+			isa = PBXFileReference;
+			name = "poly2tri";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libpoly2tri$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		E211FC9E8FF842B41C2AF878 = {
+			fileRef = "26552859DF7F14AD4C5CE4E9";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		5013C51E47DB1E004FD49347 = {
+			isa = PBXFileReference;
+			name = "declarative_positioning";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtPositioning/libdeclarative_positioning$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		98C3652948F966640CB9CEBB = {
+			fileRef = "5013C51E47DB1E004FD49347";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		321B2754AF41555CFDB41AE1 = {
+			isa = PBXFileReference;
+			name = "windowplugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Window.2/libwindowplugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		70D7B3CAAEB1E53D092BE420 = {
+			fileRef = "321B2754AF41555CFDB41AE1";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C8BBEE66458E6202658A0436 = {
+			isa = PBXFileReference;
+			name = "qquicklayoutsplugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Layouts/libqquicklayoutsplugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		86BEDF8D613AB8F4FB735F72 = {
+			fileRef = "C8BBEE66458E6202658A0436";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E8F6A31D597C982FE47760DE = {
+			isa = PBXFileReference;
+			name = "qtquickcontrols2plugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls.2/libqtquickcontrols2plugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		1696C1261ADE76E21AEE7FCE = {
+			fileRef = "E8F6A31D597C982FE47760DE";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		764386B7B368A0CCDD7A8846 = {
+			isa = PBXFileReference;
+			name = "Qt5QuickControls2";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5QuickControls2$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		BA36762D3D21EC3699FA6097 = {
+			fileRef = "764386B7B368A0CCDD7A8846";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		42F9FCDFFECFD51C4FC9EEB5 = {
+			isa = PBXFileReference;
+			name = "qtquicktemplates2plugin";
+			path = "/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Templates.2/libqtquicktemplates2plugin$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		333C9E23683ADC9FC1646A5A = {
+			fileRef = "42F9FCDFFECFD51C4FC9EEB5";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C8F0DD28125B37CFED1333F5 = {
+			isa = PBXFileReference;
+			name = "Qt5QuickTemplates2";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5QuickTemplates2$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		202761EB6B12DBE3461D86EB = {
+			fileRef = "C8F0DD28125B37CFED1333F5";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F9F6F352141BBA383C49D48B = {
+			isa = PBXFileReference;
+			name = "qtgeoservices_mapbox";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices/libqtgeoservices_mapbox$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		9B86F0F3135CE6A147911A6B = {
+			fileRef = "F9F6F352141BBA383C49D48B";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		082E7B4FE2EA49529557DE7B = {
+			isa = PBXFileReference;
+			name = "qtgeoservices_nokia";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices/libqtgeoservices_nokia$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		2E6901C84AE3832D879C3335 = {
+			fileRef = "082E7B4FE2EA49529557DE7B";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		7379F662B9023F18D8EF0915 = {
+			isa = PBXFileReference;
+			name = "qtgeoservices_osm";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices/libqtgeoservices_osm$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		13533E082CB4A9B6E378113D = {
+			fileRef = "7379F662B9023F18D8EF0915";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		21DC9EEF066F15D14B0383A2 = {
+			isa = PBXFileReference;
+			name = "Qt5Location";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Location$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		56411535D5D31126E2ED7408 = {
+			fileRef = "21DC9EEF066F15D14B0383A2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		43D424917F6301A081F69ABC = {
+			isa = PBXFileReference;
+			name = "qdds";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqdds$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		105E76DF7AC3E75C0902A867 = {
+			fileRef = "43D424917F6301A081F69ABC";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		14D6430CD221012907BCF7FE = {
+			isa = PBXFileReference;
+			name = "qicns";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqicns$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		0B9CA4F9BB56404301FCD34D = {
+			fileRef = "14D6430CD221012907BCF7FE";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		9F976EC537F0E6A054106000 = {
+			isa = PBXFileReference;
+			name = "qico";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqico$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		1100745610264A25A448FBDC = {
+			fileRef = "9F976EC537F0E6A054106000";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		62784E34494C2A26098BD7F2 = {
+			isa = PBXFileReference;
+			name = "qmacjp2";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqmacjp2$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		A2D5C9C49CD72680C858A38F = {
+			fileRef = "62784E34494C2A26098BD7F2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3A8EF9C62A8D4790CBB89CEA = {
+			isa = PBXFileReference;
+			name = "ImageIO.framework";
+			path = "/System/Library/Frameworks/ImageIO.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		61EEC397DC8556BF8C4E36A7 = {
+			fileRef = "3A8EF9C62A8D4790CBB89CEA";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		76289E55EAA6C104D7F3489C = {
+			isa = PBXFileReference;
+			name = "Qt5PlatformSupport";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5PlatformSupport$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		A2F486C354A84CF14C17A4D0 = {
+			fileRef = "76289E55EAA6C104D7F3489C";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3E9A7B94DCFB7622C2BC0F61 = {
+			isa = PBXFileReference;
+			name = "qtfreetype";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libqtfreetype$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		4C84F8AE62E248A7AD876332 = {
+			fileRef = "3E9A7B94DCFB7622C2BC0F61";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		9D30668DCE2AC645B174990F = {
+			isa = PBXFileReference;
+			name = "qtga";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqtga$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C341576B50F4423C1002FFA5 = {
+			fileRef = "9D30668DCE2AC645B174990F";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		67661865B778DD0986198970 = {
+			isa = PBXFileReference;
+			name = "qtiff";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqtiff$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C52FD74DB437EE2DE8B6F28D = {
+			fileRef = "67661865B778DD0986198970";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		CE2A1F7DBEAA8FDD21192A0E = {
+			isa = PBXFileReference;
+			name = "qwbmp";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqwbmp$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		060D398EA25AE0B6EBBA9134 = {
+			fileRef = "CE2A1F7DBEAA8FDD21192A0E";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		DC5289E16504C28D8113104F = {
+			isa = PBXFileReference;
+			name = "qwebp";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats/libqwebp$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		2442597E094A8F3F35D4B4BE = {
+			fileRef = "DC5289E16504C28D8113104F";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		3EB9E9ADCEAA93790CB9CDF3 = {
+			isa = PBXFileReference;
+			name = "qmldbg_debugger";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_debugger$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		9094BB08469409C4E9094A51 = {
+			fileRef = "3EB9E9ADCEAA93790CB9CDF3";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		796A418C28857C84939EFEF8 = {
+			isa = PBXFileReference;
+			name = "qmldbg_inspector";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_inspector$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		2D28BDDE724672CC1E45502C = {
+			fileRef = "796A418C28857C84939EFEF8";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		AE3A863380F5294675279EB2 = {
+			isa = PBXFileReference;
+			name = "qmldbg_local";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_local$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		D9522C60F45694F388C8984C = {
+			fileRef = "AE3A863380F5294675279EB2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		6FCF5B8AC1A3404B0B0070B2 = {
+			isa = PBXFileReference;
+			name = "qmldbg_native";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_native$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		A0FA45F0627047069CF9B103 = {
+			fileRef = "6FCF5B8AC1A3404B0B0070B2";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		35EAC5C1A644C586BB4FA369 = {
+			isa = PBXFileReference;
+			name = "qmldbg_profiler";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_profiler$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		AEBC8D9F54809F09F47ED1AA = {
+			fileRef = "35EAC5C1A644C586BB4FA369";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		83B7CE289E5BF012F350BE82 = {
+			isa = PBXFileReference;
+			name = "qmldbg_quickprofiler";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_quickprofiler$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		426ABB94F5B8F73131F3A00F = {
+			fileRef = "83B7CE289E5BF012F350BE82";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		197F0DFEEB8435757A5A868E = {
+			isa = PBXFileReference;
+			name = "Qt5Quick";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Quick$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		23B5F131BE90C95B6BA95AFA = {
+			fileRef = "197F0DFEEB8435757A5A868E";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		BF094348A2D826ECB02C7004 = {
+			isa = PBXFileReference;
+			name = "Qt5Gui";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Gui$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		34C62759C2D7C84DEB6F4155 = {
+			fileRef = "BF094348A2D826ECB02C7004";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		BD8F1BA0376FCB22D456B10F = {
+			isa = PBXFileReference;
+			name = "qtharfbuzzng";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libqtharfbuzzng$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		4431FEF5B6166DD29E2BB7F8 = {
+			fileRef = "BD8F1BA0376FCB22D456B10F";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		042629A2B71B73197963E8DD = {
+			isa = PBXFileReference;
+			name = "qmldbg_server";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_server$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		5C361E43E31D1417204CD45C = {
+			fileRef = "042629A2B71B73197963E8DD";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		07F65461C245209A24B58CBD = {
+			isa = PBXFileReference;
+			name = "Qt5PacketProtocol";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5PacketProtocol$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		B77158A98420A9FCAB98DE11 = {
+			fileRef = "07F65461C245209A24B58CBD";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		A5D95260AE8C3D434FBBDB1C = {
+			isa = PBXFileReference;
+			name = "qmldbg_tcp";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling/libqmldbg_tcp$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		87E036C5B68F921FFEAA1044 = {
+			fileRef = "A5D95260AE8C3D434FBBDB1C";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		95D99F0ED2EE9E60CC451A1B = {
+			isa = PBXFileReference;
+			name = "Qt5Qml";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Qml$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		A9C44AB9BCB02ADE1B122B99 = {
+			fileRef = "95D99F0ED2EE9E60CC451A1B";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		769FD0F2F41A95ECEFB42823 = {
+			isa = PBXFileReference;
+			name = "qgenericbearer";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/bearer/libqgenericbearer$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		AE603826C66A662524734F26 = {
+			fileRef = "769FD0F2F41A95ECEFB42823";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E541179E4F631BAFA8D17F9E = {
+			isa = PBXFileReference;
+			name = "Qt5Network";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Network$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		93604B382CF8B2D77EB229A4 = {
+			fileRef = "E541179E4F631BAFA8D17F9E";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		773CC28844CBCFCAA9B879A7 = {
+			isa = PBXFileReference;
+			name = "qtposition_cl";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/position/libqtposition_cl$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		5FB19EAB91B968D97B53C356 = {
+			fileRef = "773CC28844CBCFCAA9B879A7";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		E8B34F142455293F9490F665 = {
+			isa = PBXFileReference;
+			name = "CoreLocation.framework";
+			path = "/System/Library/Frameworks/CoreLocation.framework";
+			refType = 0;
+			sourceTree = "<absolute>";
+			lastKnownFileType = "wrapper.framework";
+		};
+		CB4712349D96726A75F70643 = {
+			fileRef = "E8B34F142455293F9490F665";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		FC93838818E5260D2DB2927A = {
+			isa = PBXFileReference;
+			name = "qtposition_geoclue";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/position/libqtposition_geoclue$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		7419D187B779261758493EEB = {
+			fileRef = "FC93838818E5260D2DB2927A";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		EF492326B95DD1CBD431AAAE = {
+			isa = PBXFileReference;
+			name = "Qt5DBus";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5DBus$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		CE8069935E3A8B5198A2EF0D = {
+			fileRef = "EF492326B95DD1CBD431AAAE";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		B09F36094669054DA960EB60 = {
+			isa = PBXFileReference;
+			name = "qtposition_positionpoll";
+			path = "/Users/usmarpadow/Qt/5.7/ios/plugins/position/libqtposition_positionpoll$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		1C0CA9BAFDAD2C16CFA6751F = {
+			fileRef = "B09F36094669054DA960EB60";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		6D79E68077599326A0144E47 = {
+			isa = PBXFileReference;
+			name = "Qt5Positioning";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Positioning$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		8428A336DFE98DAF13FC4475 = {
+			fileRef = "6D79E68077599326A0144E47";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		50480956029F05E4EA6A04C1 = {
+			isa = PBXFileReference;
+			name = "Qt5Core";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libQt5Core$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		85F764FE0EB13D14125F1354 = {
+			fileRef = "50480956029F05E4EA6A04C1";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		0A3B539ED8BBB5521E257E0D = {
+			isa = PBXFileReference;
+			name = "qtpcre";
+			path = "/Users/usmarpadow/Qt/5.7/ios/lib/libqtpcre$(QT_LIBRARY_SUFFIX).a";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		E69BA00E2AAD1AAB68A2EF23 = {
+			fileRef = "0A3B539ED8BBB5521E257E0D";
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		AF39DD055C3EF8226FBE929D = {
+			children = (
+				"4060DE0EF4406C98363578A6",
+				"FCC237CA5AD60B9BA4447615",
+				"7EC00404ACD5AB0E97726B0E",
+				"3C44131FDCFEF4396B9EA2BA",
+				"4D765E1B1EA6C757220C63E7",
+				"7D7B02101166B76FD2D4F8B4",
+				"6AE3EC31EE5BB1FCEE84137C",
+				"205259EEEE2BADA5E64741E3",
+				"FF5BDAB0076F3391B219EA52",
+				"13FE39D940E152DD700FACA9",
+				"E23444A1BD791F93908855F4",
+				"CDA67568D7EE9CF8E577967E",
+				"26552859DF7F14AD4C5CE4E9",
+				"5013C51E47DB1E004FD49347",
+				"321B2754AF41555CFDB41AE1",
+				"C8BBEE66458E6202658A0436",
+				"E8F6A31D597C982FE47760DE",
+				"764386B7B368A0CCDD7A8846",
+				"42F9FCDFFECFD51C4FC9EEB5",
+				"C8F0DD28125B37CFED1333F5",
+				"F9F6F352141BBA383C49D48B",
+				"082E7B4FE2EA49529557DE7B",
+				"7379F662B9023F18D8EF0915",
+				"21DC9EEF066F15D14B0383A2",
+				"43D424917F6301A081F69ABC",
+				"14D6430CD221012907BCF7FE",
+				"9F976EC537F0E6A054106000",
+				"62784E34494C2A26098BD7F2",
+				"3A8EF9C62A8D4790CBB89CEA",
+				"76289E55EAA6C104D7F3489C",
+				"3E9A7B94DCFB7622C2BC0F61",
+				"9D30668DCE2AC645B174990F",
+				"67661865B778DD0986198970",
+				"CE2A1F7DBEAA8FDD21192A0E",
+				"DC5289E16504C28D8113104F",
+				"3EB9E9ADCEAA93790CB9CDF3",
+				"796A418C28857C84939EFEF8",
+				"AE3A863380F5294675279EB2",
+				"6FCF5B8AC1A3404B0B0070B2",
+				"35EAC5C1A644C586BB4FA369",
+				"83B7CE289E5BF012F350BE82",
+				"197F0DFEEB8435757A5A868E",
+				"BF094348A2D826ECB02C7004",
+				"BD8F1BA0376FCB22D456B10F",
+				"042629A2B71B73197963E8DD",
+				"07F65461C245209A24B58CBD",
+				"A5D95260AE8C3D434FBBDB1C",
+				"95D99F0ED2EE9E60CC451A1B",
+				"769FD0F2F41A95ECEFB42823",
+				"E541179E4F631BAFA8D17F9E",
+				"773CC28844CBCFCAA9B879A7",
+				"E8B34F142455293F9490F665",
+				"FC93838818E5260D2DB2927A",
+				"EF492326B95DD1CBD431AAAE",
+				"B09F36094669054DA960EB60",
+				"6D79E68077599326A0144E47",
+				"50480956029F05E4EA6A04C1",
+				"0A3B539ED8BBB5521E257E0D");
+			isa = PBXGroup;
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		D1C883685E82D5676953459A = {
+			buildActionMask = 2147483647;
+			files = (
+				"2DDC384032EF9E87BC88CC81",
+				"F26454630C80841CBDCFE1CA",
+				"B460F624007324313696BE86",
+				"4EB68D0C8182BCE33529C421",
+				"F8B465CE34D8DF87AAE95913",
+				"2B02D9DC58A01E45248DDBCE",
+				"0CE02722F00CAD43741297B5",
+				"15364689D2AB5A30E87A689F",
+				"D4639595C3BCF2A39D88DF6E",
+				"038063D5E3009D229EB9FB43",
+				"BDFBC85F560DB22CA836E40B",
+				"E539494E1C2641823BCE250C",
+				"E211FC9E8FF842B41C2AF878",
+				"98C3652948F966640CB9CEBB",
+				"70D7B3CAAEB1E53D092BE420",
+				"86BEDF8D613AB8F4FB735F72",
+				"1696C1261ADE76E21AEE7FCE",
+				"BA36762D3D21EC3699FA6097",
+				"333C9E23683ADC9FC1646A5A",
+				"202761EB6B12DBE3461D86EB",
+				"9B86F0F3135CE6A147911A6B",
+				"2E6901C84AE3832D879C3335",
+				"13533E082CB4A9B6E378113D",
+				"56411535D5D31126E2ED7408",
+				"105E76DF7AC3E75C0902A867",
+				"0B9CA4F9BB56404301FCD34D",
+				"1100745610264A25A448FBDC",
+				"A2D5C9C49CD72680C858A38F",
+				"61EEC397DC8556BF8C4E36A7",
+				"A2F486C354A84CF14C17A4D0",
+				"4C84F8AE62E248A7AD876332",
+				"C341576B50F4423C1002FFA5",
+				"C52FD74DB437EE2DE8B6F28D",
+				"060D398EA25AE0B6EBBA9134",
+				"2442597E094A8F3F35D4B4BE",
+				"9094BB08469409C4E9094A51",
+				"2D28BDDE724672CC1E45502C",
+				"D9522C60F45694F388C8984C",
+				"A0FA45F0627047069CF9B103",
+				"AEBC8D9F54809F09F47ED1AA",
+				"426ABB94F5B8F73131F3A00F",
+				"23B5F131BE90C95B6BA95AFA",
+				"34C62759C2D7C84DEB6F4155",
+				"4431FEF5B6166DD29E2BB7F8",
+				"5C361E43E31D1417204CD45C",
+				"B77158A98420A9FCAB98DE11",
+				"87E036C5B68F921FFEAA1044",
+				"A9C44AB9BCB02ADE1B122B99",
+				"AE603826C66A662524734F26",
+				"93604B382CF8B2D77EB229A4",
+				"5FB19EAB91B968D97B53C356",
+				"CB4712349D96726A75F70643",
+				"7419D187B779261758493EEB",
+				"CE8069935E3A8B5198A2EF0D",
+				"1C0CA9BAFDAD2C16CFA6751F",
+				"8428A336DFE98DAF13FC4475",
+				"85F764FE0EB13D14125F1354",
+				"E69BA00E2AAD1AAB68A2EF23");
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Link Binary With Libraries";
+		};
+		776D5E25B18ED6FE9A43064F = {
+			buildActionMask = 2147483647;
+			files = (
+				);
+			inputPaths = (
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)");
+			isa = PBXShellScriptBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Qt Postlink";
+			shellPath = "/bin/sh";
+			shellScript = "cp /Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qt.conf $CODESIGNING_FOLDER_PATH/qt.conf;  test -d $CODESIGNING_FOLDER_PATH/qt_qml && rm -r $CODESIGNING_FOLDER_PATH/qt_qml;  mkdir -p $CODESIGNING_FOLDER_PATH/qt_qml &&  for p in /Users/usmarpadow/Qt/5.7/ios/qml; do rsync -r --exclude='*.a' --exclude='*.prl' --exclude='*.qmltypes'  $p/ $CODESIGNING_FOLDER_PATH/qt_qml; done";
+			showEnvVarsInLog = "0";
+		};
+		C9E7F611F3DA68232B67B9A3 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qml_location_mapviewer.xcodeproj/Default-568h@2x.png";
+			name = "Default-568h@2x.png";
+			sourceTree = "<absolute>";
+		};
+		CB65CA4F488C23C9656A5F70 = {
+			fileRef = "C9E7F611F3DA68232B67B9A3";
+			isa = PBXBuildFile;
+		};
+		22EE1234C897D4034FFA1153 = {
+			isa = PBXFileReference;
+			path = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/qml_location_mapviewer.xcodeproj/LaunchScreen.xib";
+			name = "LaunchScreen.xib";
+			sourceTree = "<absolute>";
+		};
+		F1C8812410659B37E6A38A76 = {
+			fileRef = "22EE1234C897D4034FFA1153";
+			isa = PBXBuildFile;
+		};
+		858FCAB0EB1F29CF8B07677C = {
+			children = (
+				"C9E7F611F3DA68232B67B9A3",
+				"22EE1234C897D4034FFA1153");
+			isa = PBXGroup;
+			name = "Bundle Data";
+			sourceTree = "<group>";
+		};
+		30414803F31797EB689AE508 = {
+			buildActionMask = 2147483647;
+			files = (
+				"CB65CA4F488C23C9656A5F70",
+				"F1C8812410659B37E6A38A76");
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Copy Bundle Resources";
+		};
+		34B55C29F3B30D4F73824D5F = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			explicitFileType = "wrapper.application";
+			path = "qml_location_mapviewer.app";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FE0A091FDBFB3E9C31B7A1BD = {
+			children = (
+				"34B55C29F3B30D4F73824D5F");
+			isa = PBXGroup;
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		E8C543AB96796ECAA2E65C57 = {
+			children = (
+				"2EB56BE3C2D93CDAB0C52E67",
+				"25B08E2869634E9BCBA333A2",
+				"74B182DB50CB5611B5C1C297",
+				"87DF60DE337FB58864343E39",
+				"AF39DD055C3EF8226FBE929D",
+				"858FCAB0EB1F29CF8B07677C",
+				"FE0A091FDBFB3E9C31B7A1BD");
+			isa = PBXGroup;
+			name = "qml_location_mapviewer";
+			sourceTree = "<group>";
+		};
+		E46ACBCABAD92A124CB9C112 = {
+			buildPhases = (
+				"5E618435888B9D49F8540165",
+				"7EF0942E79C014DCEC8976BC");
+			dependencies = (
+				);
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59;
+			isa = PBXAggregateTarget;
+			buildRules = (
+);
+			productName = "Qt Preprocess";
+			name = "Qt Preprocess";
+		};
+		31018F24B1698AD1E8E54B71 = {
+			isa = PBXTargetDependency;
+			target = "E46ACBCABAD92A124CB9C112";
+		};
+		8AD61F41CC0A0F9E26BC1EF2 = {
+			buildPhases = (
+				"F7E50F631C51CD5B5DC0BC43",
+				"D1C883685E82D5676953459A",
+				"776D5E25B18ED6FE9A43064F",
+				"30414803F31797EB689AE508");
+			dependencies = (
+				"31018F24B1698AD1E8E54B71");
+			productReference = "34B55C29F3B30D4F73824D5F";
+			buildConfigurationList = 6CC3B5D2136C7CD6A5CF5A59;
+			isa = PBXNativeTarget;
+			buildRules = (
+);
+			productType = "com.apple.product-type.application";
+			name = "qml_location_mapviewer";
+			productName = "qml_location_mapviewer";
+		};
+		3AA6C32AC930069E80220CF1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = "armv7 arm64";
+				"ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				ENABLE_BITCODE = "NO";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = "YES";
+				GCC_OPTIMIZATION_LEVEL = "0";
+				ONLY_ACTIVE_ARCH = "YES";
+				PRODUCT_NAME = "qml_location_mapviewer";
+				"QMAKE_MAC_SDK_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk";
+				"QMAKE_MAC_SDK_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform";
+				QT_LIBRARY_SUFFIX = "_debug";
+				"QT_LIBRARY_SUFFIX[sdk=iphonesimulator*]" = "_iphonesimulator$(QT_LIBRARY_SUFFIX)";
+				SDKROOT = "iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				INFOPLIST_FILE = "Info.plist";
+				SYMROOT = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/";
+				DYLIB_CURRENT_VERSION = "1.0.0";
+				DYLIB_COMPATIBILITY_VERSION = "1.0";
+				IPHONEOS_DEPLOYMENT_TARGET = "6.0";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"../mapviewer",
+					".",
+					"/Users/usmarpadow/Qt/5.7/ios/mkspecs/macx-ios-clang/ios",
+					"/Users/usmarpadow/Qt/5.7/ios/include",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtLocation",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtQuick",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtGui",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtQml",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtNetwork",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtPositioning",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtCore",
+					".",
+					"/Users/usmarpadow/Qt/5.7/ios/mkspecs/macx-ios-clang");
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/platforms",
+					"/System/Library/Frameworks/",
+					"/Users/usmarpadow/Qt/5.7/ios/lib",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtLocation",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtPositioning",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Window.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Layouts",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Templates.2",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/bearer",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/position");
+				FRAMEWORK_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-fvisibility=hidden",
+					"-fpascal-strings",
+					"-fmessage-length=0",
+					"-Wno-trigraphs",
+					"-Wreturn-type",
+					"-Wparentheses",
+					"-Wswitch",
+					"-Wno-unused-parameter",
+					"-Wunused-variable",
+					"-Wunused-value",
+					"-Wno-shorten-64-to-32",
+					"-Wno-sign-conversion",
+					"-fexceptions",
+					"-fasm-blocks",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-implicit-atomic-properties",
+					"-Wformat",
+					"-Wno-missing-braces",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wuninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wno-shadow",
+					"-Wno-four-char-constants",
+					"-Wno-sign-compare",
+					"-Wpointer-sign",
+					"-Wno-newline-eof",
+					"-Wdeprecated-declarations",
+					"-Winvalid-offsetof",
+					"-Wno-conversion",
+					"-g",
+					"-fobjc-nonfragile-abi",
+					"-fobjc-legacy-dispatch",
+					"-Wno-deprecated-implementations",
+					"-Wprotocol",
+					"-Wno-selector",
+					"-Wno-strict-selector-match",
+					"-Wno-undeclared-selector",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DDARWIN_NO_CARBON",
+					"-DQT_NO_PRINTER",
+					"-DQT_NO_PRINTDIALOG",
+					"-DQT_QML_DEBUG",
+					"-DQT_LOCATION_LIB",
+					"-DQT_QUICK_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_QML_LIB",
+					"-DQT_NETWORK_LIB",
+					"-DQT_POSITIONING_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-stdlib=libc++",
+					"-fvisibility=hidden",
+					"-fpascal-strings",
+					"-fmessage-length=0",
+					"-Wno-trigraphs",
+					"-Wreturn-type",
+					"-Wparentheses",
+					"-Wswitch",
+					"-Wno-unused-parameter",
+					"-Wunused-variable",
+					"-Wunused-value",
+					"-Wno-shorten-64-to-32",
+					"-Wno-sign-conversion",
+					"-fexceptions",
+					"-fasm-blocks",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-implicit-atomic-properties",
+					"-Wformat",
+					"-Wno-missing-braces",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wuninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wno-shadow",
+					"-Wno-four-char-constants",
+					"-Wno-sign-compare",
+					"-Wpointer-sign",
+					"-Wno-newline-eof",
+					"-Wdeprecated-declarations",
+					"-Winvalid-offsetof",
+					"-Wno-conversion",
+					"-fvisibility-inlines-hidden",
+					"-Wno-non-virtual-dtor",
+					"-Wno-overloaded-virtual",
+					"-Wno-exit-time-destructors",
+					"-g",
+					"-std=gnu++11",
+					"-fobjc-nonfragile-abi",
+					"-fobjc-legacy-dispatch",
+					"-Wno-deprecated-implementations",
+					"-Wprotocol",
+					"-Wno-selector",
+					"-Wno-strict-selector-match",
+					"-Wno-undeclared-selector",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DDARWIN_NO_CARBON",
+					"-DQT_NO_PRINTER",
+					"-DQT_NO_PRINTDIALOG",
+					"-DQT_QML_DEBUG",
+					"-DQT_LOCATION_LIB",
+					"-DQT_QUICK_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_QML_LIB",
+					"-DQT_NETWORK_LIB",
+					"-DQT_POSITIONING_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_LDFLAGS = (
+						"-headerpad_max_install_names",
+						"-stdlib=libc++",
+						"-u",
+						"_qt_registerPlatformPlugin",
+						"-Wl,-e,_qt_main_wrapper",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/platforms",
+						"-framework",
+						"UIKit",
+						"-framework",
+						"AssetsLibrary",
+						"-L/Users/usmarpadow/Qt/5.7/ios/lib",
+						"-framework",
+						"MobileCoreServices",
+						"-framework",
+						"OpenGLES",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtLocation",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtPositioning",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Window.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Layouts",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Templates.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/bearer",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/position",
+						"-lz",
+						"-lm");
+				ARCHS = "armv7 arm64 i386 x86_64";
+			};
+			name = "Debug";
+		};
+		77418F46922677BB04ED38DD = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = "armv7 arm64";
+				"ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+				COPY_PHASE_STRIP = "NO";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				ENABLE_BITCODE = "NO";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = "YES";
+				GCC_OPTIMIZATION_LEVEL = "0";
+				ONLY_ACTIVE_ARCH = "YES";
+				PRODUCT_NAME = "qml_location_mapviewer";
+				"QMAKE_MAC_SDK_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk";
+				"QMAKE_MAC_SDK_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform";
+				QT_LIBRARY_SUFFIX = "_debug";
+				"QT_LIBRARY_SUFFIX[sdk=iphonesimulator*]" = "_iphonesimulator$(QT_LIBRARY_SUFFIX)";
+				SDKROOT = "iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = "qml_location_mapviewer";
+			};
+			name = "Debug";
+		};
+		339EE1B2CC4FC24589A0EA95 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = "armv7 arm64";
+				"ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+				COPY_PHASE_STRIP = "YES";
+				ENABLE_BITCODE = "NO";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = "NO";
+				PRODUCT_NAME = "qml_location_mapviewer";
+				"QMAKE_MAC_SDK_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk";
+				"QMAKE_MAC_SDK_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform";
+				QT_LIBRARY_SUFFIX = "";
+				"QT_LIBRARY_SUFFIX[sdk=iphonesimulator*]" = "_iphonesimulator$(QT_LIBRARY_SUFFIX)";
+				SDKROOT = "iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				CC = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang";
+				LDPLUSPLUS = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++";
+				INFOPLIST_FILE = "Info.plist";
+				SYMROOT = "/Users/usmarpadow/Documents/projects/mapproject/qt/build-mapviewer-iphonesimulator_clang_Qt_5_7_0_for_iOS-Debug/";
+				DYLIB_CURRENT_VERSION = "1.0.0";
+				DYLIB_COMPATIBILITY_VERSION = "1.0";
+				IPHONEOS_DEPLOYMENT_TARGET = "6.0";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"../mapviewer",
+					".",
+					"/Users/usmarpadow/Qt/5.7/ios/mkspecs/macx-ios-clang/ios",
+					"/Users/usmarpadow/Qt/5.7/ios/include",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtLocation",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtQuick",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtGui",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtQml",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtNetwork",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtPositioning",
+					"/Users/usmarpadow/Qt/5.7/ios/include/QtCore",
+					".",
+					"/Users/usmarpadow/Qt/5.7/ios/mkspecs/macx-ios-clang");
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/platforms",
+					"/System/Library/Frameworks/",
+					"/Users/usmarpadow/Qt/5.7/ios/lib",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtLocation",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtPositioning",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Window.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Layouts",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls.2",
+					"/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Templates.2",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/bearer",
+					"/Users/usmarpadow/Qt/5.7/ios/plugins/position");
+				FRAMEWORK_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-fvisibility=hidden",
+					"-fpascal-strings",
+					"-fmessage-length=0",
+					"-Wno-trigraphs",
+					"-Wreturn-type",
+					"-Wparentheses",
+					"-Wswitch",
+					"-Wno-unused-parameter",
+					"-Wunused-variable",
+					"-Wunused-value",
+					"-Wno-shorten-64-to-32",
+					"-Wno-sign-conversion",
+					"-fexceptions",
+					"-fasm-blocks",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-implicit-atomic-properties",
+					"-Wformat",
+					"-Wno-missing-braces",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wuninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wno-shadow",
+					"-Wno-four-char-constants",
+					"-Wno-sign-compare",
+					"-Wpointer-sign",
+					"-Wno-newline-eof",
+					"-Wdeprecated-declarations",
+					"-Winvalid-offsetof",
+					"-Wno-conversion",
+					"-g",
+					"-fobjc-nonfragile-abi",
+					"-fobjc-legacy-dispatch",
+					"-Wno-deprecated-implementations",
+					"-Wprotocol",
+					"-Wno-selector",
+					"-Wno-strict-selector-match",
+					"-Wno-undeclared-selector",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DDARWIN_NO_CARBON",
+					"-DQT_NO_PRINTER",
+					"-DQT_NO_PRINTDIALOG",
+					"-DQT_QML_DEBUG",
+					"-DQT_LOCATION_LIB",
+					"-DQT_QUICK_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_QML_LIB",
+					"-DQT_NETWORK_LIB",
+					"-DQT_POSITIONING_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-stdlib=libc++",
+					"-fvisibility=hidden",
+					"-fpascal-strings",
+					"-fmessage-length=0",
+					"-Wno-trigraphs",
+					"-Wreturn-type",
+					"-Wparentheses",
+					"-Wswitch",
+					"-Wno-unused-parameter",
+					"-Wunused-variable",
+					"-Wunused-value",
+					"-Wno-shorten-64-to-32",
+					"-Wno-sign-conversion",
+					"-fexceptions",
+					"-fasm-blocks",
+					"-Wno-missing-field-initializers",
+					"-Wno-missing-prototypes",
+					"-Wno-implicit-atomic-properties",
+					"-Wformat",
+					"-Wno-missing-braces",
+					"-Wno-unused-function",
+					"-Wno-unused-label",
+					"-Wuninitialized",
+					"-Wno-unknown-pragmas",
+					"-Wno-shadow",
+					"-Wno-four-char-constants",
+					"-Wno-sign-compare",
+					"-Wpointer-sign",
+					"-Wno-newline-eof",
+					"-Wdeprecated-declarations",
+					"-Winvalid-offsetof",
+					"-Wno-conversion",
+					"-fvisibility-inlines-hidden",
+					"-Wno-non-virtual-dtor",
+					"-Wno-overloaded-virtual",
+					"-Wno-exit-time-destructors",
+					"-g",
+					"-std=gnu++11",
+					"-fobjc-nonfragile-abi",
+					"-fobjc-legacy-dispatch",
+					"-Wno-deprecated-implementations",
+					"-Wprotocol",
+					"-Wno-selector",
+					"-Wno-strict-selector-match",
+					"-Wno-undeclared-selector",
+					"-Wall",
+					"-W",
+					"-fPIC",
+					"-DDARWIN_NO_CARBON",
+					"-DQT_NO_PRINTER",
+					"-DQT_NO_PRINTDIALOG",
+					"-DQT_QML_DEBUG",
+					"-DQT_LOCATION_LIB",
+					"-DQT_QUICK_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_QML_LIB",
+					"-DQT_NETWORK_LIB",
+					"-DQT_POSITIONING_LIB",
+					"-DQT_CORE_LIB");
+				OTHER_LDFLAGS = (
+						"-headerpad_max_install_names",
+						"-stdlib=libc++",
+						"-u",
+						"_qt_registerPlatformPlugin",
+						"-Wl,-e,_qt_main_wrapper",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/platforms",
+						"-framework",
+						"UIKit",
+						"-framework",
+						"AssetsLibrary",
+						"-L/Users/usmarpadow/Qt/5.7/ios/lib",
+						"-framework",
+						"MobileCoreServices",
+						"-framework",
+						"OpenGLES",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtLocation",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtPositioning",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Window.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Layouts",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Controls.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/qml/QtQuick/Templates.2",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/geoservices",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/imageformats",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/qmltooling",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/bearer",
+						"-L/Users/usmarpadow/Qt/5.7/ios/plugins/position",
+						"-lz",
+						"-lm");
+				ARCHS = "armv7 arm64 i386 x86_64";
+			};
+			name = "Release";
+		};
+		6666AA5E688052234F6758D8 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = "armv7 arm64";
+				"ARCHS[sdk=iphonesimulator*]" = "i386 x86_64";
+				COPY_PHASE_STRIP = "YES";
+				ENABLE_BITCODE = "NO";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = "NO";
+				PRODUCT_NAME = "qml_location_mapviewer";
+				"QMAKE_MAC_SDK_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk";
+				"QMAKE_MAC_SDK_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator8.2.sdk";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphoneos*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform";
+				"QMAKE_MAC_SDK_PLATFORM_PATH[sdk=iphonesimulator*]" = "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform";
+				QT_LIBRARY_SUFFIX = "";
+				"QT_LIBRARY_SUFFIX[sdk=iphonesimulator*]" = "_iphonesimulator$(QT_LIBRARY_SUFFIX)";
+				SDKROOT = "iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_NAME = "qml_location_mapviewer";
+			};
+			name = "Release";
+		};
+		DAC4C1AA5EDEA1C85E9CA5E6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"3AA6C32AC930069E80220CF1",
+				"339EE1B2CC4FC24589A0EA95");
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug";
+		};
+		6CC3B5D2136C7CD6A5CF5A59 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"77418F46922677BB04ED38DD",
+				"6666AA5E688052234F6758D8");
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = "Debug";
+		};
+		6DB9C3763D02B1415CD9D565 = {
+			hasScannedForEncodings = 1;
+			compatibilityVersion = "Xcode 3.2";
+			isa = PBXProject;
+			mainGroup = "E8C543AB96796ECAA2E65C57";
+			productRefGroup = "FE0A091FDBFB3E9C31B7A1BD";
+			buildConfigurationList = "DAC4C1AA5EDEA1C85E9CA5E6";
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"8AD61F41CC0A0F9E26BC1EF2",
+				"E46ACBCABAD92A124CB9C112");
+			attributes = {
+				TargetAttributes = {
+				};
+			};
+		};
+	};
+	rootObject = "6DB9C3763D02B1415CD9D565";
+}

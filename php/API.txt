@@ -1,0 +1,29 @@
+	//http://amigojapan.duckdns.org/LocationServer/LocationServer.php?clientID="+clientID+"&unixtimestamp="+unix_timestamp()+"&lat="+lat+"&longi="+longi
+	//http://amigojapan.duckdns.org/LocationServer/LocationServer.php?clientID=a&unixtimestamp=123&lat=123.456&longi=789.123
+	//(done)fetch server time //http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=FetchServerTime
+	//(done)broacast message http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=boradcast&message=urlencodedmessage&clientID=usertest&lat=123.456&longi=789.123
+	//(done)private message http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PM&message=urlencodedmessage&FROMclientID=usertest&TOclientID=usertest
+	//(done)fetch messages http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=FetchMessages&&clientID=usertest
+	//(done)update profile http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=UpdateProfile&contract=urlencodedmessage
+	//(done)send meet request(check to see if in same quadrant) http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID=usertest&TOclientID=usertest&contract=urlencodedmessage&lat=123.456&longi=789.123
+	//(done)accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&RequestID=000001
+	//(done)decline meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=DeclineRequest&RequestID=000001
+	//(done)poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=user1&RequestID=000001
+	//(done)contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&ClientID=user1&RequestID=000001
+	//(done)contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&ClientID=user1&RequestID=000001
+	//not mac_address imei http://askubuntu.com/questions/568921/get-unique-device-id-in-qml
+	https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=fetch&clientID=test&lat=200&longi=100&unixtimestamp=100
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=set&clientID=test2&lat=200&longi=200&unixtimestamp=100
+		//regisater http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID=test7&lat=100&longi=100&unixtimestamp=100&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=FetchServerTime
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=boradcast&message_body=my%20test%20message&unixtimestamp=100&FROMclientID=test&lat=100&longi=100
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=FetchMessages&LastServerTime=1472716560&lat=100&longi=100&TOclientID=usertest
+		//private message http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PM&message_body=urlencodedmessage&FROMclientID=usertest&TOclientID=usertest
+		//update profile http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=UpdateProfile&clientID=test8&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee test hey&&dateable=false	
+		//send meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID=usertest&TOclientID=test8&contract=urlencodedmessage&lat=123.456&longi=189.123
+		//accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//decline meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=DeclineRequest&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=user1&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc

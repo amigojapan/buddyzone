@@ -1,0 +1,31 @@
+import QtQuick 2.5
+import QtQuick.Controls 1.4
+import QtLocation 5.6
+import QtPositioning 5.5
+
+
+.pragma library
+
+function make_mapbox_plugin_with_tokens(appWindow) {
+    return Qt.createQmlObject ('import QtLocation 5.6; Plugin{ name:"mapbox"; parameters: PluginParameter { name: "mapbox.map_id"; value: "amigojapan.0olhcn7e" } PluginParameter { name: "mapbox.access_token"; value: "pk.eyJ1IjoiYW1pZ29qYXBhbiIsImEiOiJjaXIyNDJzdWswMnprZnFtOHB1Nzd6cDF3In0.Kt-IDXAncN8BiKLP-bKgTQ" }}', appWindow)
+    //--plugin.mapbox.access_token pk.eyJ1IjoiYW1pZ29qYXBhbiIsImEiOiJjaXIyNDJzdWswMnprZnFtOHB1Nzd6cDF3In0.Kt-IDXAncN8BiKLP-bKgTQ --plugin.mapbox.map_id amigojapan.0olhcn7e
+}
+
+function unix_timestamp(){
+        Date.now() / 1000 | 0
+}
+
+function update_location_on_server(clientID,lat,long) {
+        var doc = new XMLHttpRequest();
+        doc.onreadystatechange = function() {
+            if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+
+            } else if (doc.readyState == XMLHttpRequest.DONE) {
+                console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
+                //var a = doc.responseXML.documentElement;//for some reason this element does not exist
+                console.log(doc.responseText);
+            }
+        }
+        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServer.php?clientID="+clientID+"&unixtimestamp="+unix_timestamp()+"&lat="+lat+"&longi="+long,true);
+        doc.send();
+}
