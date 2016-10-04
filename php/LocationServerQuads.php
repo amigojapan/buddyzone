@@ -51,7 +51,7 @@
 	$pdo = new PDO('mysql:host=localhost;dbname=locations', "LocalUser", "mn.,dsajlk398dkjl\$dsc");// the \$  escapes the dollar ring, not part of the password
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$quadsize=100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
+	$quadsize=0.0008;//100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
 	function get_quadnumber($xoryval,$quadsize) {
 		return floor($xoryval/$quadsize);
 	}	
@@ -61,7 +61,9 @@
 
 		$XQuad=get_quadnumber($longi,$quadsize);
 		$YQuad=get_quadnumber($lat,$quadsize);
-		//echo("XQuad:$XQuad YQuad:$YQuad");
+		if(isset($_GET["showquad"])) {
+			echo("XQuad:$XQuad YQuad:$YQuad");
+		}
 	}
 	class Data{
 		public $clientID = "empty";

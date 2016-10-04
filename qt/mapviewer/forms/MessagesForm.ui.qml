@@ -6,7 +6,7 @@ Item {
     id:item1
     width: 400
     height: 400
-    property alias btnBoradcast: btnBoradcast
+
     property alias lm1: listModel1
     property alias lm2: listModel2
     property alias lv1: listView1
@@ -125,17 +125,46 @@ Item {
         text: qsTr("Private messages")
     }
 
-    Button {
-        id: btnClose
-        x: 211
-        y: 328
-        text: qsTr("Close")
+    Label{
+        id:lblToNickname
+        text:"Private Message To:"
+        y:328
+        x:32
     }
 
+    property alias txtToNickname: txtToNickname
+    TextField{
+        id: txtToNickname
+        y:lblToNickname.y
+        x:lblToNickname.x+lblToNickname.width
+    }
+    Label{
+        id:lblMessage
+        text:"Message:"
+        y:lblToNickname.y+lblToNickname.height+50
+        x:32
+    }
+
+    property alias txtMessage: txtMessage
+    TextField{
+        id: txtMessage
+        y:lblMessage.y
+        x:lblMessage.x+lblMessage.width
+    }
+
+    property alias btnBoradcast: btnBoradcast
     Button {
         id: btnBoradcast
         x: 32
-        y: 328
+        y: lblMessage.y+lblMessage.height+50
         text: qsTr("Broadcast Message")
     }
+    property alias btnPtivateMessage: btnPtivateMessage
+    Button {
+        id: btnPtivateMessage
+        x: btnBoradcast.x+btnBoradcast.width
+        y: btnBoradcast.y
+        text: qsTr("Private Message")
+    }
+
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/libs/QtPositioning-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="9baafedc722ae6bda81117f3dfc6fe703d084cd5">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/build/intermediates/pre-dexed/debug/QtPositioning-bundled-edaa6d1fdbd6153aee4d98e0e585d7c1fd2578fd.jar" />
+    </item>
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/libs/QtAndroid-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="c5ac680f668b66787f984c88ce429ad69b266b58">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/build/intermediates/pre-dexed/debug/QtAndroid-bundled-9f8a3c58907fd3ecd6fffd864144d75e4abaef90.jar" />
+    </item>
+    <item
+        jar="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/libs/QtAndroidBearer-bundled.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="41214d5904fa1041da3cd016a0f675835a6561ad">
+        <dex dex="/Users/usmarpadow/Documents/projects/mapproject/buddyzone/qt/androidbuild/android-build/build/intermediates/pre-dexed/debug/QtAndroidBearer-bundled-eac108b1a8956b4fe9342c618a0637f99763ff00.jar" />
+    </item>
+
+</items>

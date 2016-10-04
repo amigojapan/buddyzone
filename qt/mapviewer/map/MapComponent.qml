@@ -48,6 +48,7 @@ import "../usmar_oleg.js" as Our_code
 Map {
     id: map
 //! [top]
+    property alias positionOfMap :positionSource
     property variant users
     property variant markers
     property variant mapItems
