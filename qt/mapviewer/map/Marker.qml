@@ -76,6 +76,13 @@ MapQuickItem {
                 for (var i = 0; i< map.markers.length; i++){
                     if (marker == map.markers[i]){
                         map.currentMarker = i
+                        console.log("pressed marker index:"+i);
+                        //for(person in people) {
+                            //if(people[person].index=0) {
+                                console.log("person id:"+people[i].clientID)
+                            //}
+                        //}
+                        //console.log("person id:"+people[i].clientID);
                         break
                     }
                 }

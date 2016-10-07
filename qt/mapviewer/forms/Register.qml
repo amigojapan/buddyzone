@@ -43,10 +43,10 @@ RegisterForm {
                 console.log(doc.responseText);
             }
             updateID()
-            map.users[txtID]=map.addMarkerAtCenter();
+            //map.users[txtID]=map.addMarkerAtCenter();
             //closeForm()
         }
-        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServer.php?operation=register&clientID="+uniqueID,false);
+        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID="+uniqueID+"&lat="+map.positionOfMap.position.coordinate.latitude+"&longi="+map.positionOfMap.position.coordinate.longitude+"&email="+txtEmail.text+"&phone_number="+txtPhone.text+"&introduction="+txtAreaInroduction.text+"&meeting_agreement="+txtAreaMeeting_Agreement.text+"&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID="+txtRefferedFromID.text,false);
         doc.send();
         //closeForm()
         //end of our code

@@ -5,9 +5,9 @@ import QtQuick.Controls 2.0
 Item {
     width: 400
     height: 400
+    property alias txtRefferedFromID: txtRefferedFromID
     property alias txtAreaMeeting_Agreement: txtAreaMeeting_Agreement
     property alias txtAreaInroduction: txtAreaInroduction
-    property alias txtPhone1: txtPhone1
     property alias txtPhone: txtPhone
     property alias txtEmail: txtEmail
     property alias btnCloseForm: btnCloseForm
@@ -137,7 +137,7 @@ Item {
     }
 
     TextField {
-        id: txtPhone1
+        id: txtRefferedFromID
         x: 125
         y: 93
         width: 103

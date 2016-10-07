@@ -51,6 +51,7 @@
 	$pdo = new PDO('mysql:host=localhost;dbname=locations', "LocalUser", "mn.,dsajlk398dkjl\$dsc");// the \$  escapes the dollar ring, not part of the password
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 	$quadsize=0.0008;//100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
 	function get_quadnumber($xoryval,$quadsize) {
 		return floor($xoryval/$quadsize);
@@ -91,6 +92,7 @@
 
 	function fetch_one_quad($XQ,$YQ){
 		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=fetch&clientID=test&lat=200&longi=100&unixtimestamp=100
+		//echo "XQuad=$XQuad2 YQuad=$YQuad2";
 		$stmt = $GLOBALS['pdo']->prepare("SELECT clientID, unixtimestamp, lat, longi FROM Table_Locations_Quads WHERE XQuad=:XQuad AND YQuad=:YQuad;");
 		//$stmt->bindParam(':clientID', $clientID);
 		//$stmt->bindParam(':unixtimestamp', $unixtimestamp);
@@ -312,9 +314,8 @@
 		fetch();
 	} else if(htmlspecialchars($_GET["operation"])=="register") {
 		//regisater http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID=test7&lat=100&longi=100&unixtimestamp=100&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
-		$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Locations_Quads (clientID, unixtimestamp, lat, longi, XQuad ,YQuad) VALUES (:clientID, :unixtimestamp, :lat, :longi, :XQuad, :YQuad);");
+		$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Locations_Quads (clientID, unixtimestamp, lat, longi, XQuad ,YQuad) VALUES (:clientID, UNIX_TIMESTAMP(), :lat, :longi, :XQuad, :YQuad);");
 		$stmt->bindParam(':clientID', $clientID);
-		$stmt->bindParam(':unixtimestamp', $unixtimestamp);
 		$stmt->bindParam(':lat', $lat);
 		$stmt->bindParam(':longi', $longi);
 		$stmt->bindParam(':XQuad', $XQuad);
@@ -323,12 +324,13 @@
 	
 		// insert one row
 		$clientID = htmlspecialchars($_GET["clientID"]);
-		$unixtimestamp = "Just Registered";
-		$lat = "Just Registered";
-		$longi = "Just Registered";
-		$XQuad=NULL;
-		$YQuad=NULL;
+		$lat = $_GET["lat"];
+		$longi = $_GET["longi"];
 		
+		$quadsize=0.0008;//100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
+		$XQuad=get_quadnumber($longi,$quadsize);
+		$YQuad=get_quadnumber($lat,$quadsize);
+
 		$result=$stmt->execute();
 		if(!$result){
 			die("<BR>statement failed");
@@ -447,6 +449,33 @@
 
 		$stmt->execute();
 		echo "message sent";
+	} else if(htmlspecialchars($_GET["operation"])=="GetProfile") {
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=GetProfile&clientID=test2
+		$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable FROM Table_Profile WHERE clientID=:clientID");
+		$stmt->bindParam(':clientID', $clientID);
+		
+		$clientID=$_GET["clientID"];
+		
+		$stmt->execute();
+		
+		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		if(!$result) {
+			die("clientID does not exist");
+		}
+		class Profile{
+			public $email = "empty";
+			public $phone_number = "empty";
+			public $introduction = "empty";
+			public $meeting_agreement = "empty";
+			public $dateable = false;
+		}
+		$profile = new Profile();
+		$profile->email=$result->email;
+		$profile->phone_number=$result->phone_number;
+		$profile->introduction=$result->introduction;
+		$profile->meeting_agreement=$result->meeting_agreement;
+		$profile->dateable=$result->dateable;
+		echo json_encode($profile);
 	} else if(htmlspecialchars($_GET["operation"])=="UpdateProfile") {
 		//update profile http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=UpdateProfile&clientID=test8&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee test hey&&dateable=false	
 		$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile set clientID=:clientID, email=:email, phone_number=:phone_number, introduction=:introduction, meeting_agreement=:meeting_agreement, dateable=:dateable;");
