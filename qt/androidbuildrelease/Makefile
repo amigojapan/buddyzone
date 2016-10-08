@@ -189,6 +189,7 @@ DIST          = ../mapviewer/usmar_oleg.js \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		../mapviewer/.qmake.stash \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -354,6 +355,7 @@ Makefile: ../mapviewer/mapviewer.pro /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/m
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		/Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -516,6 +518,7 @@ Makefile: ../mapviewer/mapviewer.pro /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/m
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/qt_config.prf:
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/default_pre.prf:
 /Users/usmarpadow/Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -628,7 +631,9 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/MessagesForm.ui.qml \
 		../mapviewer/forms/RouteAddress.qml \
 		../mapviewer/forms/ReverseGeocodeForm.ui.qml \
+		../mapviewer/forms/PersonInfoForm.ui.qml \
 		../mapviewer/forms/LocaleForm.ui.qml \
+		../mapviewer/forms/PersonInfo.qml \
 		../mapviewer/resources/icon.png \
 		../mapviewer/resources/scale_end.png \
 		../mapviewer/resources/scale.png \

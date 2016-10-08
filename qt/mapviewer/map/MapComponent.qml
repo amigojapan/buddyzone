@@ -48,6 +48,7 @@ import "../usmar_oleg.js" as Our_code
 Map {
     id: map
 //! [top]
+    property string otherPerson: "not set"
     property variant people
     property alias positionOfMap :positionSource
     property variant users
@@ -515,6 +516,7 @@ Map {
                             continue;
                         }
                         //if(users[resp.clientID].lat!=resp.lat || users[resp.clientID].longi!=resp.longi) {
+                            //***fix, first it seems the response is empty, then I need to get rid of users and use people instead, or use both for speed?
                             console.log("Client:"+resp.clientID+" move Marker from lat:"+ users[resp.clientID].lat+"longi:"+users[resp.clientID].longi+" to lat:"+ lat+"longi:"+longi);
                             map.markers[users[resp.clientID].index-1].coordinate=QtPositioning.coordinate(resp.lat, resp.longi)
                         //}

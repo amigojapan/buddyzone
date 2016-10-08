@@ -77,13 +77,20 @@ MapQuickItem {
                     if (marker == map.markers[i]){
                         map.currentMarker = i
                         console.log("pressed marker index:"+i);
-                        //for(person in people) {
-                            //if(people[person].index=0) {
-                                console.log("person id:"+people[i].clientID)
-                            //}
-                        //}
-                        //console.log("person id:"+people[i].clientID);
-                        break
+                        console.log("person id:"+people[i].clientID);
+                        map.otherPerson=people[i].clientID;
+                        //display other window
+                        stackView.pop({item:page, immediate: true})
+                        stackView.push({ item:  Qt.resolvedUrl("../forms/PersonInfo.qml") })
+                        /*
+                        stackView.currentItem.updateID.connect(function(){
+                            appWindow.uid2=stackView.currentItem.uniqueID;
+                            console.log("UID!"+stackView.currentItem.uniqueID);
+                            //stackView.closeForm()//some kind of race condition happens where hte forms is closed before I can get the uniqueID
+                        })
+                        */
+                        stackView.currentItem.closeForm.connect(stackView.closeForm);
+                        break;
                     }
                 }
             }
