@@ -26,6 +26,7 @@ IdInputForm {
                     if(CurrentVersion<ServerVersion){
                         updateWarning.visible=true;
                     }else{
+                        appWindow.uid2=txtID.text;
                         firstFetch();
                         //login()
                     }

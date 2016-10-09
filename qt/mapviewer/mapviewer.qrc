@@ -43,5 +43,7 @@
         <file>forms/MessagesForm.ui.qml</file>
         <file>forms/PersonInfo.qml</file>
         <file>forms/PersonInfoForm.ui.qml</file>
+        <file>forms/PMs.qml</file>
+        <file>forms/PMsForm.ui.qml</file>
     </qresource>
 </RCC>

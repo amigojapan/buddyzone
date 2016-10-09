@@ -624,6 +624,7 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/RouteListDelegate.qml \
 		../mapviewer/forms/RouteCoordinateForm.ui.qml \
 		../mapviewer/forms/Register.qml \
+		../mapviewer/forms/PMsForm.ui.qml \
 		../mapviewer/forms/RouteList.qml \
 		../mapviewer/forms/Messages.qml \
 		../mapviewer/forms/RegisterForm.ui.qml \
@@ -631,6 +632,7 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/MessagesForm.ui.qml \
 		../mapviewer/forms/RouteAddress.qml \
 		../mapviewer/forms/ReverseGeocodeForm.ui.qml \
+		../mapviewer/forms/PMs.qml \
 		../mapviewer/forms/PersonInfoForm.ui.qml \
 		../mapviewer/forms/LocaleForm.ui.qml \
 		../mapviewer/forms/PersonInfo.qml \
