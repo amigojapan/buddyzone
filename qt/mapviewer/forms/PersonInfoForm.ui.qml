@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 Item {
     width: 400
     height: 400
+    property alias btnMap1: btnMap
     property alias btnPM: btnPM
     property alias btnRequestMeetup: btnRequestMeetup
     property alias txtAreaMeeting_Agreement: txtAreaMeeting_Agreement

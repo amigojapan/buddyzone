@@ -6,7 +6,9 @@ PersonInfoForm {
     property string uniqueID
     signal updateID()
     signal closeForm()
-
+    btnMap1 {
+        onClicked: closeForm();
+    }
     Component.onCompleted: {
         var doc = new XMLHttpRequest();
         doc.onreadystatechange = function() {
@@ -15,14 +17,16 @@ PersonInfoForm {
             } else if (doc.readyState == XMLHttpRequest.DONE) {
                 console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
                 console.log("response:"+doc.responseText);
-                    var obj = JSON.parse(doc.responseText);
-                    txtAreaInroduction.text=obj.introduction;
-                    txtAreaMeeting_Agreement.text=obj.meeting_agreement;
+                var obj = JSON.parse(doc.responseText);
+                txtAreaInroduction.text=obj.introduction;
+                txtAreaMeeting_Agreement.text=obj.meeting_agreement;
+                lblID.text=map.otherPerson;
             }
          }
         doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=GetProfile&clientID="+map.otherPerson,false);
         doc.send();
     }
+
     /*
     btnOK {
         onClicked: {
@@ -70,9 +74,6 @@ PersonInfoForm {
 
     }
 
-
-    btnCloseForm{
-        onClicked: closeForm();
-    }
     */
+
 }
