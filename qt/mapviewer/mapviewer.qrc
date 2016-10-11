@@ -45,5 +45,7 @@
         <file>forms/PersonInfoForm.ui.qml</file>
         <file>forms/PMs.qml</file>
         <file>forms/PMsForm.ui.qml</file>
+        <file>forms/WaitingRequestReply.qml</file>
+        <file>forms/WaitingRequestReplyForm.ui.qml</file>
     </qresource>
 </RCC>

@@ -618,6 +618,7 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/Geocode.qml \
 		../mapviewer/forms/RouteCoordinate.qml \
 		../mapviewer/forms/RouteAddressForm.ui.qml \
+		../mapviewer/forms/WaitingRequestReplyForm.ui.qml \
 		../mapviewer/forms/Message.qml \
 		../mapviewer/forms/RouteListHeader.qml \
 		../mapviewer/forms/Locale.qml \
@@ -628,6 +629,7 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/RouteList.qml \
 		../mapviewer/forms/Messages.qml \
 		../mapviewer/forms/RegisterForm.ui.qml \
+		../mapviewer/forms/WaitingRequestReply.qml \
 		../mapviewer/forms/IdInput.qml \
 		../mapviewer/forms/MessagesForm.ui.qml \
 		../mapviewer/forms/RouteAddress.qml \

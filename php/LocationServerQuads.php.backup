@@ -10,7 +10,7 @@
 	CREATE TABLE Table_Broadcast_messages(FROMclientID TEXT, message_body TEXT,unixtimestamp TEXT, XQuad Long, YQuad Long);
 	CREATE TABLE Table_Private_messages(FROMclientID TEXT, TOclientID TEXT, message_body TEXT,unixtimestamp TEXT);	
 	CREATE TABLE Table_Profile(clientID TEXT, email TEXT, phone_number TEXT, introduction TEXT, meeting_agreement TEXT, mac_address TEXT, broken_agreements INTEGER,upheld_agreements INTEGER, dateable BOOLEAN, meetup_credits INTEGER, meetup_reffered_from_clientID TEXT);
-	CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreepent_broken BOOLEAN,agreement_upheld BOOLEAN);
+	CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreement_voted_waiting BOOLEAN, agreement_voted_requesting BOOLEAN);
 	
 	GRANT ALL PRIVILEGES ON locations.Table_Locations_Quads, locations.Table_Broadcast_messages  TO 'LocalUser'@'localhost';
 	GRANT ALL PRIVILEGES ON locations.Table_Broadcast_messages  TO 'LocalUser'@'localhost';
@@ -30,11 +30,11 @@
 	//(done)fetch messages http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=FetchMessages&&clientID=usertest
 	//(done)update profile http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=UpdateProfile&contract=urlencodedmessage
 	//(done)send meet request(check to see if in same quadrant) http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID=usertest&TOclientID=usertest&contract=urlencodedmessage&lat=123.456&longi=789.123
-	//(done)accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&RequestID=000001
-	//(done)decline meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=DeclineRequest&RequestID=000001
-	//(done)poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=user1&RequestID=000001
-	//(done)contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&ClientID=user1&RequestID=000001
-	//(done)contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&ClientID=user1&RequestID=000001
+	//accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&RequestID=000001
+	//decline meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=DeclineRequest&RequestID=000001
+	//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=user1&RequestID=000001
+	//contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&ClientID=user1&RequestID=000001
+	//contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&ClientID=user1&RequestID=000001
 	//in operation register make the points of the person who reffered him go up by a certain ammount
 	//(semi done, not tested yet) verify if macaddress matches the one in profile, by clientID
 	//modify all functions that pass clientID to use the verify function
@@ -51,7 +51,8 @@
 	$pdo = new PDO('mysql:host=localhost;dbname=locations', "LocalUser", "mn.,dsajlk398dkjl\$dsc");// the \$  escapes the dollar ring, not part of the password
 	$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$quadsize=100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
+
+	$quadsize=0.0008;//100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
 	function get_quadnumber($xoryval,$quadsize) {
 		return floor($xoryval/$quadsize);
 	}	
@@ -61,7 +62,9 @@
 
 		$XQuad=get_quadnumber($longi,$quadsize);
 		$YQuad=get_quadnumber($lat,$quadsize);
-		echo("XQuad:$XQuad YQuad:$YQuad");
+		if(isset($_GET["showquad"])) {
+			echo("XQuad:$XQuad YQuad:$YQuad");
+		}
 	}
 	class Data{
 		public $clientID = "empty";
@@ -89,6 +92,7 @@
 
 	function fetch_one_quad($XQ,$YQ){
 		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=fetch&clientID=test&lat=200&longi=100&unixtimestamp=100
+		//echo "XQuad=$XQuad2 YQuad=$YQuad2";
 		$stmt = $GLOBALS['pdo']->prepare("SELECT clientID, unixtimestamp, lat, longi FROM Table_Locations_Quads WHERE XQuad=:XQuad AND YQuad=:YQuad;");
 		//$stmt->bindParam(':clientID', $clientID);
 		//$stmt->bindParam(':unixtimestamp', $unixtimestamp);
@@ -188,97 +192,97 @@
 		$XQuad2=$GLOBALS['XQuad']-2;
 		$YQuad2=$GLOBALS['YQuad']-2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 		
 		//B
 		$XQuad2=$GLOBALS['XQuad']-1;
 		$YQuad2=$GLOBALS['YQuad']-2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 	
 		//C
 		$XQuad2=$GLOBALS['XQuad'];
 		$YQuad2=$GLOBALS['YQuad']-2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//D
 		$XQuad2=$GLOBALS['XQuad']+1;
 		$YQuad2=$GLOBALS['YQuad']-2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//E
 		$XQuad2=$GLOBALS['XQuad']+2;
 		$YQuad2=$GLOBALS['YQuad']-2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//I
 		$XQuad2=$GLOBALS['XQuad']+2;
 		$YQuad2=$GLOBALS['YQuad']+2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 		
 		//J
 		$XQuad2=$GLOBALS['XQuad']+1;
 		$YQuad2=$GLOBALS['YQuad']+2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 	
 		//K
 		$XQuad2=$GLOBALS['XQuad'];
 		$YQuad2=$GLOBALS['YQuad']+2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//L
 		$XQuad2=$GLOBALS['XQuad']-1;
 		$YQuad2=$GLOBALS['YQuad']+2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//N
 		$XQuad2=$GLOBALS['XQuad']-2;
 		$YQuad2=$GLOBALS['YQuad']+2;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//F
 		$XQuad2=$GLOBALS['XQuad']+2;
 		$YQuad2=$GLOBALS['YQuad']-1;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//G
 		$XQuad2=$GLOBALS['XQuad']+2;
 		$YQuad2=$GLOBALS['YQuad'];
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//H
 		$XQuad2=$GLOBALS['XQuad']+2;
 		$YQuad2=$GLOBALS['YQuad']+1;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//Q
 		$XQuad2=$GLOBALS['XQuad']-2;
 		$YQuad2=$GLOBALS['YQuad']-1;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//P
 		$XQuad2=$GLOBALS['XQuad']-2;
 		$YQuad2=$GLOBALS['YQuad'];
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		//O
 		$XQuad2=$GLOBALS['XQuad']-2;
 		$YQuad2=$GLOBALS['YQuad']+1;
 		$item = fetch_one_quad($XQuad2,$YQuad2);		
-		array_push($all_quads->surrounding_quads, $item);
+		array_push($all_quads->outer_quads, $item);
 
 		echo json_encode($all_quads);
 	}
@@ -310,9 +314,8 @@
 		fetch();
 	} else if(htmlspecialchars($_GET["operation"])=="register") {
 		//regisater http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID=test7&lat=100&longi=100&unixtimestamp=100&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
-		$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Locations_Quads (clientID, unixtimestamp, lat, longi, XQuad ,YQuad) VALUES (:clientID, :unixtimestamp, :lat, :longi, :XQuad, :YQuad);");
+		$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Locations_Quads (clientID, unixtimestamp, lat, longi, XQuad ,YQuad) VALUES (:clientID, UNIX_TIMESTAMP(), :lat, :longi, :XQuad, :YQuad);");
 		$stmt->bindParam(':clientID', $clientID);
-		$stmt->bindParam(':unixtimestamp', $unixtimestamp);
 		$stmt->bindParam(':lat', $lat);
 		$stmt->bindParam(':longi', $longi);
 		$stmt->bindParam(':XQuad', $XQuad);
@@ -321,12 +324,13 @@
 	
 		// insert one row
 		$clientID = htmlspecialchars($_GET["clientID"]);
-		$unixtimestamp = "Just Registered";
-		$lat = "Just Registered";
-		$longi = "Just Registered";
-		$XQuad=NULL;
-		$YQuad=NULL;
+		$lat = $_GET["lat"];
+		$longi = $_GET["longi"];
 		
+		$quadsize=0.0008;//100;//0.0008;//139.7189-139.7181=0.0007999999999981355 so rounr up to 0.0008(this is about the size of my tablet screen's hight
+		$XQuad=get_quadnumber($longi,$quadsize);
+		$YQuad=get_quadnumber($lat,$quadsize);
+
 		$result=$stmt->execute();
 		if(!$result){
 			die("<BR>statement failed");
@@ -391,22 +395,28 @@
 		
 		$LastServerTime=$_GET["LastServerTime"];
 		$stmt->execute();
-		
+		class All_Messages{
+			public $LastFetchTime = 0;
+			public $Broadcase_Messages = "empty";
+			public $Private_Messages = "empty";
+		}		
 		class Message{
 			public $FROMclientID = "empty";
 			public $message_body = "empty";
 		}
 		
-		
+		$all_messages = new All_Messages();
+		$all_messages->LastFetchTime= time();
 		$data_array = array();
-		//LastFetchTime
-		array_push($data_array, time());
 		while($result = $stmt->fetch(PDO::FETCH_OBJ)) {
 			$item = new Message();
 			$item->FROMclientID=$result->FROMclientID;
 			$item->message_body=$result->message_body;
 			array_push($data_array, $item);
 		}
+		$all_messages->Broadcase_Messages = $data_array;
+		
+		
 		$stmt = $GLOBALS['pdo']->prepare("SELECT FROMclientID, message_body FROM Table_Private_messages WHERE unixtimestamp>=:LastServerTime AND TOclientID=:TOclientID");
 		$stmt->bindParam(':LastServerTime', $LastServerTime);
 		$stmt->bindParam(':TOclientID', $TOclientID);		
@@ -415,15 +425,16 @@
 		$TOclientID=$_GET["TOclientID"];
 		
 		$stmt->execute();
-				
+		
+		$data_array = array();		
 		while($result = $stmt->fetch(PDO::FETCH_OBJ)) {
 			$item = new Message();
 			$item->FROMclientID=$result->FROMclientID;
 			$item->message_body=$result->message_body;
 			array_push($data_array, $item);
 		}
-		
-		echo json_encode($data_array);	
+		$all_messages->Private_Messages = $data_array;
+		echo json_encode($all_messages);	
 	} else if(htmlspecialchars($_GET["operation"])=="PM") {
 		//private message http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PM&message_body=urlencodedmessage&FROMclientID=usertest&TOclientID=usertest
 		//CREATE TABLE Table_Private_messages (FROMclientID TEXT, TOclientID TEXT, message_body TEXT,unixtimestamp TEXT);
@@ -438,6 +449,33 @@
 
 		$stmt->execute();
 		echo "message sent";
+	} else if(htmlspecialchars($_GET["operation"])=="GetProfile") {
+		//http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=GetProfile&clientID=test2
+		$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable FROM Table_Profile WHERE clientID=:clientID");
+		$stmt->bindParam(':clientID', $clientID);
+		
+		$clientID=$_GET["clientID"];
+		
+		$stmt->execute();
+		
+		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		if(!$result) {
+			die("clientID does not exist");
+		}
+		class Profile{
+			public $email = "empty";
+			public $phone_number = "empty";
+			public $introduction = "empty";
+			public $meeting_agreement = "empty";
+			public $dateable = false;
+		}
+		$profile = new Profile();
+		$profile->email=$result->email;
+		$profile->phone_number=$result->phone_number;
+		$profile->introduction=$result->introduction;
+		$profile->meeting_agreement=$result->meeting_agreement;
+		$profile->dateable=$result->dateable;
+		echo json_encode($profile);
 	} else if(htmlspecialchars($_GET["operation"])=="UpdateProfile") {
 		//update profile http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=UpdateProfile&clientID=test8&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee test hey&&dateable=false	
 		$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile set clientID=:clientID, email=:email, phone_number=:phone_number, introduction=:introduction, meeting_agreement=:meeting_agreement, dateable=:dateable;");
@@ -477,9 +515,9 @@
 		$result = $stmt->fetch(PDO::FETCH_OBJ);
 		
 		if($result) {
-			//CREATE TABLE Table_Meetups (MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreepent_broken BOOLEAN,agreement_upheld BOOLEAN);
+			//CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreement_voted_waiting BOOLEAN, agreement_voted_requesting BOOLEAN);
 			//fetch TOclientID's meeting agreement from his profile SELECT meeting_agreement FROM Table_Profile WHERE clientID='test8';
-			echo "person in same quadrant.";
+			//echo "person in same quadrant.";
 			$stmt = $GLOBALS['pdo']->prepare("SELECT meeting_agreement FROM Table_Profile WHERE clientID=:TOclientID;");
 			$stmt->bindParam(':TOclientID', $TOclientID);
 			
@@ -494,7 +532,7 @@
 			
 			$meetingID=uniqid();
 			
-			$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Meetups set MeetupID='".$meetingID."', FROMclientID=:FROMclientID, TOclientID=:TOclientID, meeting_agreement=:meeting_agreement, meeting_accepted='Pending', agreepent_broken=FALSE,agreement_upheld=FALSE;");
+			$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Meetups set MeetupID='".$meetingID."', FROMclientID=:FROMclientID, TOclientID=:TOclientID, meeting_agreement=:meeting_agreement, meeting_accepted='Pending', agreement_voted_waiting=FALSE, agreement_voted_requesting=FALSE;");
 			$stmt->bindParam(':FROMclientID', $FROMclientID);
 			$stmt->bindParam(':TOclientID', $TOclientID);
 			$stmt->bindParam(':meeting_agreement', $meeting_agreement);
@@ -508,7 +546,7 @@
 			if(!$result){
 				die("<BR>statement failed");
 			} else {
-				echo "meetingID=$meetingID";
+				echo "$meetingID";
 			}
 		} else {
 			echo "person not in same quadrant.";
@@ -598,26 +636,41 @@
 		}
 
 	} else if(htmlspecialchars($_GET["operation"])=="ContractBroken") {
-		//contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57d11a6b6a8c1&OTHERclientID=test8&token=abc&voter=waiter    voter=requester
 		//check to see if the stuff exists
-		$stmt = $GLOBALS['pdo']->prepare("SELECT FROMclientID FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
+		if($_GET["voter"]=="waiter") {
+			$clientID1="FROMclientID";
+			$clientID2="TOclientID";
+		} else { //requester
+			$clientID1="TOclientID";
+			$clientID2="FROMclientID";
+		}
+		$stmt = $GLOBALS['pdo']->prepare("SELECT $clientID1 FROM Table_Meetups WHERE MeetupID=:MeetupID AND $clientID2=:$clientID2;");
 		$stmt->bindParam(':MeetupID', $MeetupID);
-		$stmt->bindParam(':TOclientID', $TOclientID);
+		$stmt->bindParam(':$clientID2', $OTHERclientID);
 	
 		$MeetupID = htmlspecialchars($_GET["MeetupID"]);
-		$TOclientID = htmlspecialchars($_GET["TOclientID"]);
+		$OTHERclientID = htmlspecialchars($_GET["OTHERclientID"]);
 		
 		$stmt->execute();
 		
 		$result = $stmt->fetch(PDO::FETCH_OBJ);
 		if(!$result){
-			die("MeetupID or ToClientID or token error!");
+			die("MeetupID or OTHERclientID or token error!");
 		} else {
-			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET broken_agreements=CONVERT(broken_agreements,DECIMAL)+1 WHERE clientID=:FROMclientID;");
+			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET broken_agreements=CONVERT(broken_agreements,DECIMAL)+1 WHERE clientID=:$clientID1;");
+			
+		if($_GET["voter"]=="waiter") {
 			$stmt->bindParam(':FROMclientID', $FROMclientID);
 		
 			$FROMclientID = $result->FROMclientID; 
 			echo "FROMclientID:$FROMclientID";
+		} else { //requester
+			$stmt->bindParam(':TOclientID', $TOclientID);
+		
+			$TOclientID = $result->TOclientID; 
+			echo "TOclientID:$TOclientID";
+		}
 			$result=$stmt->execute();
 			if(!$result){
 				die("<BR>statement failed");
@@ -655,7 +708,8 @@
 			}
 
 		}
-
+	} else if(htmlspecialchars($_GET["operation"])=="CheckVersion") {
+		echo "0.1";
 	} else {
 		die("opperation not supported.");
 	}

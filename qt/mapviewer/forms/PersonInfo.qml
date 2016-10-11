@@ -4,6 +4,7 @@ import QtQuick 2.4
 PersonInfoForm {
     id:frmRegister
     property string uniqueID
+
     signal updateID()
     signal closeForm()
     btnMap1 {
@@ -25,6 +26,29 @@ PersonInfoForm {
          }
         doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=GetProfile&clientID="+map.otherPerson,false);
         doc.send();
+
+        /*
+        lblPersonNotInSameQuadrant.visible=false;
+        var doc = new XMLHttpRequest();
+        doc.onreadystatechange = function() {
+            if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+
+            } else if (doc.readyState == XMLHttpRequest.DONE) {
+                console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
+                console.log("response:"+doc.responseText);
+                if(doc.responseText=="person not in same quadrant.") {
+                   lblPersonNotInSameQuadrant.visible=true;
+                    return;
+                }
+                //var obj = JSON.parse(doc.responseText);
+                lblPersonNotInSameQuadrant.visible=true;
+                lblPersonNotInSameQuadrant.text=doc.responseText;
+                sentRequest=true;
+            }
+         }
+        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID="+appWindow.uid2+"&TOclientID="+map.otherPerson+"&lat="+map.positionOfMap.position.coordinate.latitude+"&longi="+map.positionOfMap.position.coordinate.longitude,false);
+        doc.send();
+        */
     }
 
     btnPM {
@@ -39,5 +63,14 @@ PersonInfoForm {
             });
             stackView.currentItem.closeForm.connect(stackView.closeForm);
         }
+    }
+
+    btnRequestMeetup {
+       onClicked: {
+           //sdisplay other window
+           stackView.pop({item:page, immediate: true})
+           stackView.push({ item:  Qt.resolvedUrl("../forms/WaitingRequestReply.qml") })
+           stackView.currentItem.closeForm.connect(stackView.closeForm);
+       }
     }
 }

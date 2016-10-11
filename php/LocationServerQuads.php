@@ -10,7 +10,7 @@
 	CREATE TABLE Table_Broadcast_messages(FROMclientID TEXT, message_body TEXT,unixtimestamp TEXT, XQuad Long, YQuad Long);
 	CREATE TABLE Table_Private_messages(FROMclientID TEXT, TOclientID TEXT, message_body TEXT,unixtimestamp TEXT);	
 	CREATE TABLE Table_Profile(clientID TEXT, email TEXT, phone_number TEXT, introduction TEXT, meeting_agreement TEXT, mac_address TEXT, broken_agreements INTEGER,upheld_agreements INTEGER, dateable BOOLEAN, meetup_credits INTEGER, meetup_reffered_from_clientID TEXT);
-	CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreepent_broken BOOLEAN,agreement_upheld BOOLEAN);
+	CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreement_voted_waiting BOOLEAN, agreement_voted_requesting BOOLEAN);
 	
 	GRANT ALL PRIVILEGES ON locations.Table_Locations_Quads, locations.Table_Broadcast_messages  TO 'LocalUser'@'localhost';
 	GRANT ALL PRIVILEGES ON locations.Table_Broadcast_messages  TO 'LocalUser'@'localhost';
@@ -498,7 +498,7 @@
 		$stmt->execute();
 		echo "profile updated.";	
 	} else if(htmlspecialchars($_GET["operation"])=="MeetRequest") {
-		//send meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID=usertest&TOclientID=test8&contract=urlencodedmessage&lat=123.456&longi=189.123
+		//send meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=MeetRequest&FROMclientID=amigojapan&TOclientID=test7&contract=urlencodedmessage&lat=35.84411494102117&longi=139.71831295493965
 		//(check to see if other user is in same quadrant)
 		$stmt = $GLOBALS['pdo']->prepare("SELECT XQuad, YQuad FROM Table_Locations_Quads WHERE (XQuad=:XQuad AND YQuad=:YQuad) AND clientID=:TOclientID;");
 		$stmt->bindParam(':TOclientID', $TOclientID);
@@ -515,9 +515,9 @@
 		$result = $stmt->fetch(PDO::FETCH_OBJ);
 		
 		if($result) {
-			//CREATE TABLE Table_Meetups (MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreepent_broken BOOLEAN,agreement_upheld BOOLEAN);
+			//CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreement_voted_waiting BOOLEAN, agreement_voted_requesting BOOLEAN);
 			//fetch TOclientID's meeting agreement from his profile SELECT meeting_agreement FROM Table_Profile WHERE clientID='test8';
-			echo "person in same quadrant.";
+			//echo "person in same quadrant.";
 			$stmt = $GLOBALS['pdo']->prepare("SELECT meeting_agreement FROM Table_Profile WHERE clientID=:TOclientID;");
 			$stmt->bindParam(':TOclientID', $TOclientID);
 			
@@ -532,7 +532,7 @@
 			
 			$meetingID=uniqid();
 			
-			$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Meetups set MeetupID='".$meetingID."', FROMclientID=:FROMclientID, TOclientID=:TOclientID, meeting_agreement=:meeting_agreement, meeting_accepted='Pending', agreepent_broken=FALSE,agreement_upheld=FALSE;");
+			$stmt = $GLOBALS['pdo']->prepare("INSERT INTO Table_Meetups set MeetupID='".$meetingID."', FROMclientID=:FROMclientID, TOclientID=:TOclientID, meeting_agreement=:meeting_agreement, meeting_accepted='Pending', agreement_voted_waiting=FALSE, agreement_voted_requesting=FALSE;");
 			$stmt->bindParam(':FROMclientID', $FROMclientID);
 			$stmt->bindParam(':TOclientID', $TOclientID);
 			$stmt->bindParam(':meeting_agreement', $meeting_agreement);
@@ -546,13 +546,13 @@
 			if(!$result){
 				die("<BR>statement failed");
 			} else {
-				echo "meetingID=$meetingID";
+				echo "$meetingID";
 			}
 		} else {
 			echo "person not in same quadrant.";
 		}
 	} else if(htmlspecialchars($_GET["operation"])=="AcceptRequest") {
-		//accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//accept meet request http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&MeetupID=57fcc627a6a9f&TOclientID=test7&token=abc
 		//check to see if the stuff exists
 		$stmt = $GLOBALS['pdo']->prepare("SELECT MeetupID FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
 		$stmt->bindParam(':MeetupID', $MeetupID);
@@ -617,7 +617,7 @@
 		}
 
 	} else if(htmlspecialchars($_GET["operation"])=="PollMeetingReply") {
-		//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=user1&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=amigojapan&MeetupID=57fcc627a6a9f&TOclientID=test7&token=abc
 		//check to see if the stuff exists
 		$stmt = $GLOBALS['pdo']->prepare("SELECT meeting_accepted FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
 		$stmt->bindParam(':MeetupID', $MeetupID);
@@ -636,26 +636,42 @@
 		}
 
 	} else if(htmlspecialchars($_GET["operation"])=="ContractBroken") {
-		//contact broken http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
+		//contact broken waiter http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=waiter
+		//contact broken requester http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=requester
 		//check to see if the stuff exists
-		$stmt = $GLOBALS['pdo']->prepare("SELECT FROMclientID FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
+		if($_GET["voter"]=="waiter") {
+			$clientID1="FROMclientID";
+			$clientID2="TOclientID";
+		} else { //requester
+			$clientID1="TOclientID";
+			$clientID2="FROMclientID";
+		}
+		$stmt = $GLOBALS['pdo']->prepare("SELECT $clientID1 FROM Table_Meetups WHERE MeetupID=:MeetupID AND $clientID2=:$clientID2;");
 		$stmt->bindParam(':MeetupID', $MeetupID);
-		$stmt->bindParam(':TOclientID', $TOclientID);
+		$stmt->bindParam(':' . $clientID2, $OTHERclientID);
 	
 		$MeetupID = htmlspecialchars($_GET["MeetupID"]);
-		$TOclientID = htmlspecialchars($_GET["TOclientID"]);
+		$OTHERclientID = htmlspecialchars($_GET["OTHERclientID"]);
 		
 		$stmt->execute();
 		
 		$result = $stmt->fetch(PDO::FETCH_OBJ);
 		if(!$result){
-			die("MeetupID or ToClientID or token error!");
+			die("MeetupID or OTHERclientID or token error!");
 		} else {
-			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET broken_agreements=CONVERT(broken_agreements,DECIMAL)+1 WHERE clientID=:FROMclientID;");
+			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET broken_agreements=CONVERT(broken_agreements,DECIMAL)+1 WHERE clientID=:$clientID1;");
+			
+		if($_GET["voter"]=="waiter") {
 			$stmt->bindParam(':FROMclientID', $FROMclientID);
 		
 			$FROMclientID = $result->FROMclientID; 
 			echo "FROMclientID:$FROMclientID";
+		} else { //requester
+			$stmt->bindParam(':TOclientID', $TOclientID);
+		
+			$TOclientID = $result->TOclientID; 
+			echo "TOclientID:$TOclientID";
+		}
 			$result=$stmt->execute();
 			if(!$result){
 				die("<BR>statement failed");
@@ -664,6 +680,52 @@
 			}
 
 		}
+	} else if(htmlspecialchars($_GET["operation"])=="ContractUpheld") {
+		//contact broken waiter http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=waiter
+		//contact broken requester http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=requester
+		//check to see if the stuff exists
+		if($_GET["voter"]=="waiter") {
+			$clientID1="FROMclientID";
+			$clientID2="TOclientID";
+		} else { //requester
+			$clientID1="TOclientID";
+			$clientID2="FROMclientID";
+		}
+		$stmt = $GLOBALS['pdo']->prepare("SELECT $clientID1 FROM Table_Meetups WHERE MeetupID=:MeetupID AND $clientID2=:$clientID2;");
+		$stmt->bindParam(':MeetupID', $MeetupID);
+		$stmt->bindParam(':' . $clientID2, $OTHERclientID);
+	
+		$MeetupID = htmlspecialchars($_GET["MeetupID"]);
+		$OTHERclientID = htmlspecialchars($_GET["OTHERclientID"]);
+		
+		$stmt->execute();
+		
+		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		if(!$result){
+			die("MeetupID or OTHERclientID or token error!");
+		} else {
+			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET upheld_agreements=CONVERT(upheld_agreements,DECIMAL)+1 WHERE clientID=:$clientID1;");
+			
+		if($_GET["voter"]=="waiter") {
+			$stmt->bindParam(':FROMclientID', $FROMclientID);
+		
+			$FROMclientID = $result->FROMclientID; 
+			echo "FROMclientID:$FROMclientID";
+		} else { //requester
+			$stmt->bindParam(':TOclientID', $TOclientID);
+		
+			$TOclientID = $result->TOclientID; 
+			echo "TOclientID:$TOclientID";
+		}
+			$result=$stmt->execute();
+			if(!$result){
+				die("<BR>statement failed");
+			} else {
+				echo "Updated!";
+			}
+
+		}
+/*
 	} else if(htmlspecialchars($_GET["operation"])=="ContractUpheld") {
 		//contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
 		//check to see if the stuff exists
@@ -693,6 +755,7 @@
 			}
 
 		}
+*/
 	} else if(htmlspecialchars($_GET["operation"])=="CheckVersion") {
 		echo "0.1";
 	} else {

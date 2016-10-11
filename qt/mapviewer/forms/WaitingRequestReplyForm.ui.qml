@@ -5,13 +5,11 @@ import QtQuick.Controls 2.0
 Item {
     width: 400
     height: 400
-    property alias lblPersonNotInSameQuadrant: lblPersonNotInSameQuadrant
     property alias btnMap1: btnMap
-    property alias btnPM: btnPM
-    property alias btnRequestMeetup: btnRequestMeetup
     property alias txtAreaMeeting_Agreement: txtAreaMeeting_Agreement
     property alias txtAreaInroduction: txtAreaInroduction
     property alias lblID: lblID
+    property alias lblIDPrompt: lblIDPrompt
     property alias updateWarning: updateWarning
     //http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID=test7&lat=100&longi=100&unixtimestamp=100&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
     Label {
@@ -20,34 +18,23 @@ Item {
         y: 42
         width: 13
         height: 16
-        text: qsTr("ID:")
+        font.pixelSize : 25
+        text: qsTr("Waiting for reply from:")
     }
 
     Label {
         id: lblID
-        x: 27
-        y: 42
+        x: 78
+        y: 63
         width: 103
         height: 40
+        font.pixelSize : 25
         text: qsTr("id here")
     }
     //email=test@test.com
     //phone_number=09037368364
 
  //meeting_agreement=I want to meet someone over coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
-    Button {
-        id: btnRequestMeetup
-        x: 13
-        y: 352
-        text: qsTr("Request Meetup")
-    }
-
-    Button {
-        id: btnPM
-        x: 156
-        y: 352
-        text: qsTr("Personal Message")
-    }
     Label{
         id:updateWarning
         text: "Warning, you need to upgrade to the latest version of this app to continue using it!¥nGo to appsore oh iphone or google play on android and get latest version"
@@ -121,15 +108,6 @@ Item {
         width: 64
         height: 40
         text: qsTr("Map")
-    }
-
-    Label {
-        id: lblPersonNotInSameQuadrant
-        x: 13
-        y: 338
-        color:"red"
-        text: qsTr("Warning, person not in same quadrant!")
-        visible: false
     }
 
 }
