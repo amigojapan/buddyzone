@@ -44,7 +44,7 @@ PMsForm {
                } else if (doc.readyState == XMLHttpRequest.DONE) {
                    console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
                    console.log("Response:"+doc.responseText);
-                   lm2.append({nickname: txtToNickname.text, MessageText: txtMessage.text});
+                   lm2.append({nickname: appWindow.uid2, MessageText: txtMessage.text});
                    lv2.positionViewAtEnd();
                }
            }

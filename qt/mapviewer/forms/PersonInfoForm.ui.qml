@@ -122,7 +122,7 @@ Item {
 
         Button {
             id: btnPM
-            text: qsTr("Personal Message")
+            text: qsTr("Private Message")
         }
     }
 }
