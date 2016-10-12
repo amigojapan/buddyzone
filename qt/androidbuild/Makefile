@@ -553,20 +553,26 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/Geocode.qml \
 		../mapviewer/forms/RouteCoordinate.qml \
 		../mapviewer/forms/RouteAddressForm.ui.qml \
+		../mapviewer/forms/WaitingRequestReplyForm.ui.qml \
 		../mapviewer/forms/Message.qml \
 		../mapviewer/forms/RouteListHeader.qml \
 		../mapviewer/forms/Locale.qml \
 		../mapviewer/forms/RouteListDelegate.qml \
 		../mapviewer/forms/RouteCoordinateForm.ui.qml \
 		../mapviewer/forms/Register.qml \
+		../mapviewer/forms/PMsForm.ui.qml \
 		../mapviewer/forms/RouteList.qml \
 		../mapviewer/forms/Messages.qml \
 		../mapviewer/forms/RegisterForm.ui.qml \
+		../mapviewer/forms/WaitingRequestReply.qml \
 		../mapviewer/forms/IdInput.qml \
 		../mapviewer/forms/MessagesForm.ui.qml \
 		../mapviewer/forms/RouteAddress.qml \
 		../mapviewer/forms/ReverseGeocodeForm.ui.qml \
+		../mapviewer/forms/PMs.qml \
+		../mapviewer/forms/PersonInfoForm.ui.qml \
 		../mapviewer/forms/LocaleForm.ui.qml \
+		../mapviewer/forms/PersonInfo.qml \
 		../mapviewer/resources/icon.png \
 		../mapviewer/resources/scale_end.png \
 		../mapviewer/resources/scale.png \

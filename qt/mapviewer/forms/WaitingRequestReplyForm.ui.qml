@@ -1,21 +1,20 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.3
 
 
 Item {
     width: 400
     height: 400
+    property alias btnMap: btnMap
     property alias btnMap1: btnMap
     property alias txtAreaMeeting_Agreement: txtAreaMeeting_Agreement
     property alias txtAreaInroduction: txtAreaInroduction
     property alias lblID: lblID
     property alias lblIDPrompt: lblIDPrompt
-    property alias updateWarning: updateWarning
     //http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=register&clientID=test7&lat=100&longi=100&unixtimestamp=100&email=test@test.com&phone_number=09037368364&introduction=hello I am test, nice to meet you&meeting_agreement=I want to meet someone to have a cup of coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
     Label {
         id: lblIDPrompt
-        x: 8
-        y: 42
         width: 13
         height: 16
         font.pixelSize : 25
@@ -24,8 +23,8 @@ Item {
 
     Label {
         id: lblID
-        x: 78
-        y: 63
+        x: 71
+        y: 29
         width: 103
         height: 40
         font.pixelSize : 25
@@ -35,19 +34,11 @@ Item {
     //phone_number=09037368364
 
  //meeting_agreement=I want to meet someone over coffee&mac_address=ab:ab:ab:ab&dateable=false&meetup_reffered_from_clientID=test2
-    Label{
-        id:updateWarning
-        text: "Warning, you need to upgrade to the latest version of this app to continue using it!¥nGo to appsore oh iphone or google play on android and get latest version"
-        font.pixelSize: 30
-        font.bold: true
-        color: "red"
-        visible: false
-    }
 
     Label {
         id: lblIntroductionPrompt
-        x: 3
-        y: 87
+        x: 8
+        y: 84
         width: 13
         height: 16
         text: qsTr("Introduction")
@@ -55,8 +46,8 @@ Item {
 
     TextArea {
         id: txtAreaInroduction
-        x: 8
-        y: 109
+        x: 13
+        y: 106
         width: 243
         height: 72
         text: qsTr("")
@@ -65,8 +56,8 @@ Item {
 
     Label {
         id: lblMeeting_agreementPrompt
-        x: 8
-        y: 187
+        x: 13
+        y: 184
         width: 13
         height: 16
         text: qsTr("Meeting Agreement")
@@ -74,28 +65,18 @@ Item {
 
     TextArea {
         id: txtAreaMeeting_Agreement
-        x: 8
-        y: 200
+        x: 13
+        y: 197
         width: 243
         height: 41
         text: qsTr("")
         wrapMode: Text.WordWrap
     }
 
-    Label {
-        id: lblPasswordsNoMatchWarning
-        x: 92
-        y: 87
-        color:"red"
-        text: qsTr("^Passwords do not match")
-        visible: false
-        font.bold: true
-    }
-
     Image {
         id: image1
-        x: 8
-        y: 247
+        x: 13
+        y: 244
         width: 107
         height: 94
         source: "qrc:/qtquickplugin/images/template_image.png"
@@ -103,8 +84,8 @@ Item {
 
     Button {
         id: btnMap
-        x: 156
-        y: 301
+        x: 161
+        y: 298
         width: 64
         height: 40
         text: qsTr("Map")

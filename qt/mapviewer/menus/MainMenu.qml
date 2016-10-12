@@ -132,7 +132,7 @@ MenuBar {
 
     Menu {
         id: enterIdMenu
-        title: qsTr("Befriender")
+        title: qsTr("BuddyZone")
         MenuItem {
             text: "Register"
             onTriggered:{

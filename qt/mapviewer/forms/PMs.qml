@@ -44,6 +44,8 @@ PMsForm {
                } else if (doc.readyState == XMLHttpRequest.DONE) {
                    console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
                    console.log("Response:"+doc.responseText);
+                   lm2.append({nickname: txtToNickname.text, MessageText: txtMessage.text});
+                   lv2.positionViewAtEnd();
                }
            }
            console.log("here2 username:"+appWindow.uid2);
@@ -56,6 +58,9 @@ PMsForm {
            doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PM&message_body="+txtMessage.text+"&FROMclientID="+appWindow.uid2+"&TOclientID="+txtToNickname.text,false);
            doc.send();
        }
+    }
+    btnMap {
+        onClicked: closeForm();
     }
 }
 

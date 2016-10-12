@@ -67,6 +67,7 @@ IdInputForm {
                 var message=doc.responseText;
                 var obj;
                 var markerCounter=0;
+                console.log("message:"+message);
                 obj = JSON.parse(message);
                 for(var item in obj["my_quad"]) {
                     var lat=parseFloat(obj["my_quad"][item]["lat"]).toFixed(4)
