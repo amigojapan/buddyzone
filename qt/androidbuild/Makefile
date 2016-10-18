@@ -557,7 +557,9 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/forms/Message.qml \
 		../mapviewer/forms/RouteListHeader.qml \
 		../mapviewer/forms/Locale.qml \
+		../mapviewer/forms/ConfirmMeetupForm.ui.qml \
 		../mapviewer/forms/RouteListDelegate.qml \
+		../mapviewer/forms/ConfirmMeetup.qml \
 		../mapviewer/forms/RouteCoordinateForm.ui.qml \
 		../mapviewer/forms/Register.qml \
 		../mapviewer/forms/PMsForm.ui.qml \

@@ -103,10 +103,10 @@ Item {
     }
 
     GridLayout {
-        x: 8
-        y: 344
+        x: 130
+        y: 249
         rowSpacing: 5
-        columns: 3
+        columns: 2
 
         Button {
             id: btnMap
@@ -114,15 +114,17 @@ Item {
             height: 40
             text: qsTr("Map")
         }
-
-        Button {
-            id: btnRequestMeetup
-            text: qsTr("Request Meetup")
-        }
-
         Button {
             id: btnPM
             text: qsTr("Private Message")
+        }
+        Button {
+            id: btnAccept
+            text: qsTr("Accept")
+        }
+        Button {
+            id: btnDecline
+            text: qsTr("Decline")
         }
     }
 }
