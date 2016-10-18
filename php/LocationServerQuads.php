@@ -9,7 +9,7 @@
 	CREATE TABLE Table_Locations_Quads(clientID TEXT,unixtimestamp TEXT,lat TEXT,longi TEXT, XQuad Long, YQuad Long);
 	CREATE TABLE Table_Broadcast_messages(FROMclientID TEXT, message_body TEXT,unixtimestamp TEXT, XQuad Long, YQuad Long);
 	CREATE TABLE Table_Private_messages(FROMclientID TEXT, TOclientID TEXT, message_body TEXT,unixtimestamp TEXT);	
-	CREATE TABLE Table_Profile(clientID TEXT, email TEXT, phone_number TEXT, introduction TEXT, meeting_agreement TEXT, mac_address TEXT, broken_agreements INTEGER,upheld_agreements INTEGER, dateable BOOLEAN, meetup_credits INTEGER, meetup_reffered_from_clientID TEXT);
+	CREATE TABLE Table_Profile(clientID TEXT, email TEXT, phone_number TEXT, introduction TEXT, meeting_agreement TEXT, mac_address TEXT, broken_agreements INTEGER,upheld_agreements INTEGER, dateable BOOLEAN, meetup_credits INTEGER, meetup_reffered_from_clientID TEXT, meetup_awaiting BOOLEAN, meetup_awaiting_last_time LONG, meetup_awaiting_who TEXT, meetup_await_meetup_id TEXT);
 	CREATE TABLE Table_Meetups(MeetupID TEXT, FROMclientID TEXT, TOclientID TEXT, meeting_agreement TEXT, meeting_accepted TEXT, agreement_voted_waiting BOOLEAN, agreement_voted_requesting BOOLEAN);
 	
 	GRANT ALL PRIVILEGES ON locations.Table_Locations_Quads, locations.Table_Broadcast_messages  TO 'LocalUser'@'localhost';
@@ -617,7 +617,7 @@
 		}
 
 	} else if(htmlspecialchars($_GET["operation"])=="PollMeetingReply") {
-		//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID=amigojapan&MeetupID=57fcc627a6a9f&TOclientID=test7&token=abc
+		//poll for meeting accepted or rejected http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&FROMclientID=amigojapan&MeetupID=57fcc627a6a9f&TOclientID=test7&token=abc
 		//check to see if the stuff exists
 		$stmt = $GLOBALS['pdo']->prepare("SELECT meeting_accepted FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
 		$stmt->bindParam(':MeetupID', $MeetupID);
@@ -634,7 +634,64 @@
 		} else {
 			echo "status:$result->meeting_accepted";
 		}
-
+		//put the meeting on the other person's profile
+		//CREATE TABLE Table_Profile(clientID TEXT, email TEXT, phone_number TEXT, introduction TEXT, meeting_agreement TEXT, mac_address TEXT, broken_agreements INTEGER,upheld_agreements INTEGER, dateable BOOLEAN, meetup_credits INTEGER, meetup_reffered_from_clientID TEXT, meetup_awaiting BOOLEAN, meetup_awaiting_last_time LONG, meetup_awaiting_who TEXT);
+		$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET meetup_awaiting=TRUE, meetup_awaiting_last_time=UNIX_TIMESTAMP(), meetup_awaiting_who=:FROMclientID, meetup_await_meetup_id=:MeetupID WHERE clientID=:TOclientID;");
+		$stmt->bindParam(':MeetupID', $MeetupID);
+		$stmt->bindParam(':TOclientID', $TOclientID);
+		$stmt->bindParam(':FROMclientID', $FROMclientID);
+		
+		$FROMclientID = htmlspecialchars($_GET["FROMclientID"]);
+		
+		$result=$stmt->execute();
+		if(!$result) {
+			die("error writing to Table_Profile.");
+		}
+	} else if(htmlspecialchars($_GET["operation"])=="PollMeetingAwaiting") {
+		//contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingAwaiting&clientID=test8&token=abc
+		//check to see if the stuff exists
+		$stmt = $GLOBALS['pdo']->prepare("SELECT meetup_awaiting, meetup_awaiting_last_time, meetup_awaiting_who, meetup_await_meetup_id FROM Table_Profile WHERE clientID=:clientID;");
+		$stmt->bindParam(':clientID', $clientID);
+	
+		$clientID = htmlspecialchars($_GET["clientID"]);
+		
+		$stmt->execute();
+		
+		$result = $stmt->fetch(PDO::FETCH_OBJ);
+		if(!$result){
+			die("clientID error!");
+		} else {
+			if(!$result->meetup_awaiting) {
+				echo "meetup not awaiting";
+				return;
+			} else if($result->meetup_awaiting_last_time+10<time()) {
+				echo("meetup timeout");
+				return;
+			} else {
+				$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable FROM Table_Profile WHERE clientID='". $result->meetup_awaiting_who . "'");
+				
+				$stmt->execute();
+				
+				$result = $stmt->fetch(PDO::FETCH_OBJ);
+				if(!$result) {
+					die("clientID does not exist");
+				}
+				class Profile{
+					public $email = "empty";
+					public $phone_number = "empty";
+					public $introduction = "empty";
+					public $meeting_agreement = "empty";
+					public $dateable = false;
+				}
+				$profile = new Profile();
+				$profile->email=$result->email;
+				$profile->phone_number=$result->phone_number;
+				$profile->introduction=$result->introduction;
+				$profile->meeting_agreement=$result->meeting_agreement;
+				$profile->dateable=$result->dateable;
+				echo json_encode($profile);
+			}
+		}
 	} else if(htmlspecialchars($_GET["operation"])=="ContractBroken") {
 		//contact broken waiter http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=waiter
 		//contact broken requester http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractBroken&MeetupID=57fcc627a6a9f&OTHERclientID=test7&token=abc&voter=requester
@@ -725,40 +782,15 @@
 			}
 
 		}
-/*
-	} else if(htmlspecialchars($_GET["operation"])=="ContractUpheld") {
-		//contract upheld http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=ContractUpheld&MeetupID=57d11a6b6a8c1&TOclientID=test8&token=abc
-		//check to see if the stuff exists
-		$stmt = $GLOBALS['pdo']->prepare("SELECT FROMclientID FROM Table_Meetups WHERE MeetupID=:MeetupID AND TOclientID=:TOclientID;");
-		$stmt->bindParam(':MeetupID', $MeetupID);
-		$stmt->bindParam(':TOclientID', $TOclientID);
-	
-		$MeetupID = htmlspecialchars($_GET["MeetupID"]);
-		$TOclientID = htmlspecialchars($_GET["TOclientID"]);
-		
-		$stmt->execute();
-		
-		$result = $stmt->fetch(PDO::FETCH_OBJ);
-		if(!$result){
-			die("MeetupID or ToClientID or token error!");
-		} else {
-			$stmt = $GLOBALS['pdo']->prepare("UPDATE Table_Profile SET upheld_agreements=CONVERT(upheld_agreements,DECIMAL)+1 WHERE clientID=:FROMclientID;");
-			$stmt->bindParam(':FROMclientID', $FROMclientID);
-		
-			$FROMclientID = $result->FROMclientID; 
-			echo "FROMclientID:$FROMclientID";
-			$result=$stmt->execute();
-			if(!$result){
-				die("<BR>statement failed");
-			} else {
-				echo "Updated!";
-			}
-
-		}
-*/
 	} else if(htmlspecialchars($_GET["operation"])=="CheckVersion") {
 		echo "0.1";
 	} else {
 		die("opperation not supported.");
 	}
+	/*
+	adsc: and maybe I would also like a safe mode in which it wouldn't show positions at first, but allow you to chat with people who are close with similar interests
+[9:10pm] mentazoom: Rounin: First of all, the yield keyword
+[9:10pm] adsc: and then you could decide to show position to the chat partner after a while
+adsc: amigojapan: maybe even with a safe radius that actively BLOCKS people who are TOO CLOSE to you, so that they can't see you in person
+*/
 ?>

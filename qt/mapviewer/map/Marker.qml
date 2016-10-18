@@ -42,8 +42,16 @@ import QtQuick 2.5;
 import QtLocation 5.6
 
 //! [mqi-top]
+
 MapQuickItem {
     id: marker
+    property alias mapMarker: marker
+    signal changeMarkerColor(variant index)
+    onChangeMarkerColor:  {
+        image.source="../resources/markerBlue.png";
+    }
+
+
 //! [mqi-top]
     property alias lastMouseX: markerMouseArea.lastX
     property alias lastMouseY: markerMouseArea.lastY
@@ -75,6 +83,7 @@ MapQuickItem {
                 map.currentMarker = -1
                 for (var i = 0; i< map.markers.length; i++){
                     if (marker == map.markers[i]){
+                        //image.source="../resources/markerBlue.png";
                         map.currentMarker = i
                         console.log("pressed marker index:"+i);
                         console.log("person id:"+people[i].clientID);

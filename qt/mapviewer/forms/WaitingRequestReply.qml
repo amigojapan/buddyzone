@@ -71,13 +71,21 @@ WaitingRequestReplyForm {
                 }
             }
          }
-        console.log("here3 "+"http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID="+appWindow.uid2+"&MeetupID="+meetupID+"&TOclientID="+map.otherPerson+"&token=abc");
-        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&ClientID="+appWindow.uid2+"&MeetupID="+meetupID+"&TOclientID="+map.otherPerson+"&token=abc",false);
+        console.log("here3 "+"http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&FROMclientID="+appWindow.uid2+"&MeetupID="+meetupID+"&TOclientID="+map.otherPerson+"&token=abc");
+        doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingReply&FROMclientID="+appWindow.uid2+"&MeetupID="+meetupID+"&TOclientID="+map.otherPerson+"&token=abc",false);
         doc.send();
     }
 
     btnMap1 {
-        onClicked: closeForm();
+        onClicked: {
+            //highlight other person so we can find them easily
+            for(var ind=0; ind<map.markers.length;ind++){
+                if(map.people[ind].clientID== map.otherPerson) {
+                    map.markers[ind].changeMarkerColor(ind);
+                }
+            }
+            closeForm();
+        }
     }
     Component.onCompleted: {
         lblID.text=map.otherPerson;

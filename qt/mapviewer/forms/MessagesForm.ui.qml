@@ -15,116 +15,115 @@ Item {
     property alias lm2: listModel2
     property alias lv1: listView1
     property alias lv2: listView2
-    GridLayout {
-        columns: 1
-        Label {
-            id: lblBoradcastedMessages
-            x: 86
-            y: 29
-            text: qsTr("Boradcasted messages")
-        }
+    Label {
+        id: lblBoradcastedMessages
+        x: 94
+        y: 0
+        text: qsTr("Boradcasted messages")
+    }
 
-        ListView {
-            id: listView1
-            x: 32
-            y: 41
-            width: 334
-            height: 113
-            model: ListModel {
-                id: listModel1
-                ListElement {
-                    nickname: "testuser"
-                    MessageText: "hey everyone whats up!"
-                }
-
-                ListElement {
-                    nickname: "Red"
-                    MessageText: "red"
-                }
-
-                ListElement {
-                    nickname: "Blue"
-                    MessageText: "blue"
-                }
-
-                ListElement {
-                    nickname: "Green"
-                    MessageText: "green"
-                }
+    ListView {
+        id: listView1
+        x: 40
+        y: 12
+        width: 334
+        height: 113
+        model: ListModel {
+            id: listModel1
+            ListElement {
+                nickname: "testuser"
+                MessageText: "hey everyone whats up!"
             }
-            delegate: Item {
-                x: 5
-                width: 80
-                height: 40
-                Row {
-                    id: row1
-                    spacing: 10
-                    Text {
-                        text: nickname
-                        anchors.verticalCenter: parent.verticalCenter
-                        font.bold: true
-                        color:"blue"
-                    }
-                    Text {
-                        text: MessageText
-                        anchors.verticalCenter: parent.verticalCenter
-                        font.bold: true
-                    }
+
+            ListElement {
+                nickname: "Red"
+                MessageText: "red"
+            }
+
+            ListElement {
+                nickname: "Blue"
+                MessageText: "blue"
+            }
+
+            ListElement {
+                nickname: "Green"
+                MessageText: "green"
+            }
+        }
+        delegate: Item {
+            x: 5
+            width: 80
+            height: 40
+            Row {
+                id: row1
+                spacing: 10
+                Text {
+                    text: nickname
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                    color:"blue"
+                }
+                Text {
+                    text: MessageText
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
                 }
             }
         }
-        Label {
-            id: lblBoradcastedMessages1
-            text: qsTr("Private messages")
-        }
+    }
+    Label {
+        id: lblPrivareMessages
+        x: 40
+        y: 131
+        text: qsTr("Private messages")
+    }
 
 
-        ListView {
-            id: listView2
-            x: 32
-            y: 187
-            width: 332
-            height: 114
-            model: ListModel {
-                id: listModel2
-                ListElement {
-                    nickname: "testuser"
-                    MessageText: "hey everyone whats up!"
-                }
-
-                ListElement {
-                    nickname: "Red"
-                    MessageText: "red"
-                }
-
-                ListElement {
-                    nickname: "Blue"
-                    MessageText: "blue"
-                }
-
-                ListElement {
-                    nickname: "Green"
-                    MessageText: "green"
-                }
+    ListView {
+        id: listView2
+        x: 34
+        y: 143
+        width: 332
+        height: 114
+        model: ListModel {
+            id: listModel2
+            ListElement {
+                nickname: "testuser"
+                MessageText: "hey everyone whats up!"
             }
-            delegate: Item {
-                x: 5
-                width: 80
-                height: 40
-                Row {
-                    id: row2
-                    spacing: 10
-                    Text {
-                        text: nickname
-                        anchors.verticalCenter: parent.verticalCenter
-                        font.bold: true
-                        color:"blue"
-                    }
-                    Text {
-                        text: MessageText
-                        anchors.verticalCenter: parent.verticalCenter
-                        font.bold: true
-                    }
+
+            ListElement {
+                nickname: "Red"
+                MessageText: "red"
+            }
+
+            ListElement {
+                nickname: "Blue"
+                MessageText: "blue"
+            }
+
+            ListElement {
+                nickname: "Green"
+                MessageText: "green"
+            }
+        }
+        delegate: Item {
+            x: 5
+            width: 80
+            height: 40
+            Row {
+                id: row2
+                spacing: 10
+                Text {
+                    text: nickname
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
+                    color:"blue"
+                }
+                Text {
+                    text: MessageText
+                    anchors.verticalCenter: parent.verticalCenter
+                    font.bold: true
                 }
             }
         }

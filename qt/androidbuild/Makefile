@@ -577,6 +577,7 @@ qrc_mapviewer.cpp: ../mapviewer/mapviewer.qrc \
 		../mapviewer/resources/scale_end.png \
 		../mapviewer/resources/scale.png \
 		../mapviewer/resources/marker.png \
+		../mapviewer/resources/markerBlue.png \
 		../mapviewer/menus/MainMenu.qml \
 		../mapviewer/menus/MarkerPopupMenu.qml \
 		../mapviewer/menus/MapPopupMenu.qml \

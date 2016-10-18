@@ -10,7 +10,7 @@ RegisterForm {
     btnOK {
         onClicked: {
             uniqueID=txtID.text
-            console.log("btnOK clicked");
+            //console.log("btnOK clicked");
             var doc = new XMLHttpRequest();
             doc.onreadystatechange = function() {
                 if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {

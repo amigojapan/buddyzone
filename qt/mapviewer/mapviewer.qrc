@@ -47,5 +47,6 @@
         <file>forms/PMsForm.ui.qml</file>
         <file>forms/WaitingRequestReply.qml</file>
         <file>forms/WaitingRequestReplyForm.ui.qml</file>
+        <file>resources/markerBlue.png</file>
     </qresource>
 </RCC>
