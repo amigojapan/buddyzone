@@ -668,15 +668,18 @@
 				echo("meetup timeout");
 				return;
 			} else {
+				$from_who=$result->meetup_awaiting_who;
 				$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable FROM Table_Profile WHERE clientID='". $result->meetup_awaiting_who . "'");
 				
 				$stmt->execute();
+				
 				
 				$result = $stmt->fetch(PDO::FETCH_OBJ);
 				if(!$result) {
 					die("clientID does not exist");
 				}
 				class Profile{
+					public $from_who = "empty";
 					public $email = "empty";
 					public $phone_number = "empty";
 					public $introduction = "empty";
@@ -684,6 +687,7 @@
 					public $dateable = false;
 				}
 				$profile = new Profile();
+				$profile->from_who=$from_who;
 				$profile->email=$result->email;
 				$profile->phone_number=$result->phone_number;
 				$profile->introduction=$result->introduction;

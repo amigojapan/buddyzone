@@ -78,6 +78,52 @@ Map {
     signal showPointMenu(variant coordinate)
     signal showRouteList()
 
+    Timer {
+        id: timerPollServerMeetupRequests
+        interval: 5000
+        running: true
+        repeat: true
+        onTriggered: {
+            //poll meetup requests
+            var doc = new XMLHttpRequest();
+            doc.onreadystatechange = function() {
+                if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+
+                } else if (doc.readyState == XMLHttpRequest.DONE) {
+                    console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
+                    console.log("poll for meetup requests, response:"+doc.responseText);
+                    if(doc.responseText=="meetup not awaiting" || doc.responseText=="meetup timeout") {
+                        return;
+                    } else {
+                        var obj = JSON.parse(doc.responseText);
+                        timerPollServerMeetupRequests.running=false;
+                        map.otherPerson=obj.from_who;
+                        //display other window
+                        stackView.pop({item:page, immediate: true})
+                        stackView.push({ item:  Qt.resolvedUrl("../forms/ConfirmMeetup.qml") })
+                        stackView.currentItem.updateID.connect(function(){
+                            appWindow.uid2=stackView.currentItem.uniqueID;
+                            console.log("PM UID!"+stackView.currentItem.uniqueID);
+                            //stackView.closeForm()//some kind of race condition happens where hte forms is closed before I can get the uniqueID
+                        });
+                        stackView.currentItem.closeForm.connect(stackView.closeForm);
+                    }
+
+                    var obj = JSON.parse(doc.responseText);
+                    txtAreaInroduction.text=obj.introduction;
+                    txtAreaMeeting_Agreement.text=obj.meeting_agreement;
+                    lblID.text=map.otherPerson;
+                }
+             }
+            if(appWindow.uid2=="") {
+                //not logged in yet
+                return;
+            }
+            console.log("http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingAwaiting&clientID="+encodeURIComponent(appWindow.uid2)+"&token=abc")
+            doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=PollMeetingAwaiting&clientID="+encodeURIComponent(appWindow.uid2)+"&token=abc",false);
+            doc.send();
+        }
+    }
 
     onAddMarkerSignal: addMarkerAtCoordinate(cors);
     function geocodeMessage()
