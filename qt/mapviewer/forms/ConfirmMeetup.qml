@@ -51,6 +51,46 @@ ConfirmMeetupForm {
         */
     }
 
+    btnAccept {
+        onClicked: {
+            var doc = new XMLHttpRequest();
+            doc.onreadystatechange = function() {
+                if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+
+                } else if (doc.readyState == XMLHttpRequest.DONE) {
+                    console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
+                    console.log("accept meetup response:"+doc.responseText);
+                    //set color of other person to blue
+                    for(var ind=0; ind<map.markers.length;ind++){
+                        if(map.people[ind].clientID== map.otherPerson) {
+                            map.markers[ind].changeMarkerColor(ind);
+                        }
+                    }
+                    closeForm();
+                }
+             }
+            doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=AcceptRequest&MeetupID="+map.meetupID+"&TOclientID="+map.otherPerson+"&token=abc",false);
+            doc.send();
+        }
+    }
+
+    btnDecline {
+        onClicked: {
+            var doc = new XMLHttpRequest();
+            doc.onreadystatechange = function() {
+                if (doc.readyState == XMLHttpRequest.HEADERS_RECEIVED) {
+
+                } else if (doc.readyState == XMLHttpRequest.DONE) {
+                    console.log("\nDone\ndoc.readyState:"+doc.readyState+"XMLHttpRequest.DONE:"+XMLHttpRequest.DONE);
+                    console.log("accept meetup response:"+doc.responseText);
+                    closeForm();
+                }
+             }
+            doc.open("GET", "http://amigojapan.duckdns.org/LocationServer/LocationServerQuads.php?operation=DeclineRequest&MeetupID="+map.meetupID+"&TOclientID="+map.otherPerson+"&token=abc",false);
+            doc.send();
+        }
+    }
+
     btnPM {
         onClicked: {
             //display other window
@@ -63,14 +103,5 @@ ConfirmMeetupForm {
             });
             stackView.currentItem.closeForm.connect(stackView.closeForm);
         }
-    }
-
-    btnRequestMeetup {
-       onClicked: {
-           //sdisplay other window
-           stackView.pop({item:page, immediate: true})
-           stackView.push({ item:  Qt.resolvedUrl("../forms/WaitingRequestReply.qml") })
-           stackView.currentItem.closeForm.connect(stackView.closeForm);
-       }
     }
 }

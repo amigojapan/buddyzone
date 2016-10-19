@@ -49,6 +49,7 @@ Map {
     id: map
 //! [top]
     property string otherPerson: "not set"
+    property string meetupID: "not set"
     property variant people
     property alias positionOfMap :positionSource
     property variant users
@@ -98,6 +99,7 @@ Map {
                         var obj = JSON.parse(doc.responseText);
                         timerPollServerMeetupRequests.running=false;
                         map.otherPerson=obj.from_who;
+                        map.meetupID=obj.meetupid;
                         //display other window
                         stackView.pop({item:page, immediate: true})
                         stackView.push({ item:  Qt.resolvedUrl("../forms/ConfirmMeetup.qml") })
@@ -108,11 +110,12 @@ Map {
                         });
                         stackView.currentItem.closeForm.connect(stackView.closeForm);
                     }
-
+                    /*
                     var obj = JSON.parse(doc.responseText);
                     txtAreaInroduction.text=obj.introduction;
                     txtAreaMeeting_Agreement.text=obj.meeting_agreement;
                     lblID.text=map.otherPerson;
+                    */
                 }
              }
             if(appWindow.uid2=="") {

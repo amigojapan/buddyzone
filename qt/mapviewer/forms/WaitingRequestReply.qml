@@ -68,6 +68,17 @@ WaitingRequestReplyForm {
                 }
                 if(doc.responseText=="status:Accepted") {
                     lblIDPrompt.text="request accepted!";
+                    //change color of other person to blue
+                    for(var ind=0; ind<map.markers.length;ind++){
+                        if(map.people[ind].clientID== map.otherPerson) {
+                            map.markers[ind].changeMarkerColor(ind);
+                        }
+                    }
+                    closeForm();
+                }
+                if(doc.responseText=="status:Declined") {
+                    lblIDPrompt.text="request declined :(";
+                    lblIDPrompt.color ="blue";
                 }
             }
          }
@@ -78,12 +89,6 @@ WaitingRequestReplyForm {
 
     btnMap1 {
         onClicked: {
-            //highlight other person so we can find them easily
-            for(var ind=0; ind<map.markers.length;ind++){
-                if(map.people[ind].clientID== map.otherPerson) {
-                    map.markers[ind].changeMarkerColor(ind);
-                }
-            }
             closeForm();
         }
     }

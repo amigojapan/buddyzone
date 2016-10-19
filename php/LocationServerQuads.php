@@ -642,6 +642,7 @@
 		$stmt->bindParam(':FROMclientID', $FROMclientID);
 		
 		$FROMclientID = htmlspecialchars($_GET["FROMclientID"]);
+		$MeetupID = htmlspecialchars($_GET["MeetupID"]);
 		
 		$result=$stmt->execute();
 		if(!$result) {
@@ -669,7 +670,7 @@
 				return;
 			} else {
 				$from_who=$result->meetup_awaiting_who;
-				$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable FROM Table_Profile WHERE clientID='". $result->meetup_awaiting_who . "'");
+				$stmt = $GLOBALS['pdo']->prepare("SELECT email, phone_number, introduction, meeting_agreement, dateable, meetup_await_meetup_id FROM Table_Profile WHERE clientID='". $result->meetup_awaiting_who . "'");
 				
 				$stmt->execute();
 				
@@ -680,6 +681,7 @@
 				}
 				class Profile{
 					public $from_who = "empty";
+					public $meetupid = "empty";
 					public $email = "empty";
 					public $phone_number = "empty";
 					public $introduction = "empty";
@@ -688,6 +690,7 @@
 				}
 				$profile = new Profile();
 				$profile->from_who=$from_who;
+				$profile->meetupid=$result->meetup_await_meetup_id;
 				$profile->email=$result->email;
 				$profile->phone_number=$result->phone_number;
 				$profile->introduction=$result->introduction;

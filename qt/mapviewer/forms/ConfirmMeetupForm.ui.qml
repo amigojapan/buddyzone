@@ -5,10 +5,11 @@ import QtQuick.Layouts 1.3
 Item {
     width: 400
     height: 400
+    property alias btnDecline: btnDecline
+    property alias btnAccept: btnAccept
     property alias lblPersonNotInSameQuadrant: lblPersonNotInSameQuadrant
     property alias btnMap1: btnMap
     property alias btnPM: btnPM
-    property alias btnRequestMeetup: btnRequestMeetup
     property alias txtAreaMeeting_Agreement: txtAreaMeeting_Agreement
     property alias txtAreaInroduction: txtAreaInroduction
     property alias lblID: lblID
