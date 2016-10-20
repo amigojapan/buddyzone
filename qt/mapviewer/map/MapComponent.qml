@@ -564,6 +564,33 @@ Map {
                         if(resp.clientID==""){
                             continue;
                         }
+                        /*
+                        resp.clientID=clientID;
+                        resp.lat=lat;
+                        resp.longi=longi;
+                        resp.index = map.addMarkerAtCoordinate(QtPositioning.coordinate(resp.lat, resp.longi));
+                        */
+                        //chceck to see if user had logged in
+                        var ind;
+                        if(appWindow.uid2!="") {
+                            console.log("resp.clientID:"+resp.clientID);
+                            for(var person in map.people) {
+                                //console.log("map.people[person].clientID:"+map.people[person].clientID+"resp.clientID:"+resp.clientID)
+
+                                if(map.people[person].clientID==resp.clientID){
+                                    console.log("map.people[person].clientID:"+map.people[person].clientID)
+                                    ind=map.people[person].index;
+                                }
+
+                            }
+
+                            console.log("resp.clientID:"+resp.clientID);
+                            if(map.people[ind].lat!=resp.lat || map.people[ind].longi!=resp.longi) {
+                                console.log("Client:"+resp.clientID+" move Marker from lat:"+ map.people[ind].lat+"longi:"+map.people[ind].longi+" to lat:"+ lat+"longi:"+longi);
+                                map.markers[map.people[ind].index-1].coordinate=QtPositioning.coordinate(resp.lat, resp.longi)
+                            }
+
+                        }
                         //if(users[resp.clientID].lat!=resp.lat || users[resp.clientID].longi!=resp.longi) {
                             //***fix, first it seems the response is empty, then I need to get rid of users and use people instead, or use both for speed?
                             /*
